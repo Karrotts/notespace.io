@@ -6,6 +6,11 @@ Markdown Note Taking Application
 2. [Database Diagram](https://github.com/Karrotts/notespace.io#database-diagram)
 3. [Draft Wireframe](https://github.com/Karrotts/notespace.io#draft-wireframe)
 4. [Requirements](https://github.com/Karrotts/notespace.io#requirements)
+	1. [User Stories]()
+	2. [Use-Cases]()
+	3. [Use-Case Diagram]()
+	4. [Individual Requirements]()
+5. [Test Planning & RTM]()  
 
 ## Concept
 Note taking is an important aspect of learning any kind of material, it allows you to look back at important topics or sections in which you may struggle with. Taking notes allows you to write material into your own words which helps with retaining the information you have learned. A major problem with most note taking applications is formatting the information in a clear concise manner. This application attempts to solve that by allowing users to quickly transform notes into a well formatted documents using Markdown.
@@ -44,7 +49,7 @@ Note taking is an important aspect of learning any kind of material, it allows y
 ## Use-Case Diagram (UML)
 ![UML](/requirements/uml.png)
 
-## REQUIREMENTS
+## Individual Requirements
 1. The system shall provide a way to log into the site.
 	1. The system shall display a login screen to the user
 		1. The system shall verify the user has entered a username
