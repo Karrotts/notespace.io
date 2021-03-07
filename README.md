@@ -20,6 +20,8 @@ Note taking is an important aspect of learning any kind of material, it allows y
 ## Database Diagram
 ![Database Diagram](/database/ERD.png)
 
+[Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
+
 # Draft wireframe
 #### Login Page
 ![Login Page](/wireframe/login.png)
@@ -32,11 +34,15 @@ Note taking is an important aspect of learning any kind of material, it allows y
 #### Discover Page
 ![Discover Page](/wireframe/discover.png)
 
+[Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
+
 ## Requirements
 ## User stories
 * As a student, I need website where I can view, store, and edit my markdown formatted notes, so that I can convienently access them from anywhere.
 * As a developer, I need to write documentation for a code project and be able to link my documentation together, so that other developers can view the documentation in a clear consise format.
 * As a life-long learner, I want a website where I can view other peoples notes, so that I can learn from other peoples experiences.
+
+[Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
 
 ## Use Cases
 * Given a new user, when logging into the site, then ask the user to register for a new account.
@@ -48,8 +54,12 @@ Note taking is an important aspect of learning any kind of material, it allows y
 * Given a registered user and on the edit note screen, when clicking the save button, save plaintext file to server.
 * Given a admin user, when logging into the site, they are brought to the manage users screen.
 
+[Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
+
 ## Use-Case Diagram (UML)
 ![UML](/requirements/uml.png)
+
+[Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
 
 ## Individual Requirements
 1. The system shall provide a way to log into the site.
@@ -102,4 +112,6 @@ Note taking is an important aspect of learning any kind of material, it allows y
 	1. The system shall display a search bar.
 		1. The system shall allow the user to search by username.
 		2. The system shall allow the user to search by notebook name.
+
+[Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
  
