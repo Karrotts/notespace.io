@@ -100,38 +100,52 @@ Note taking is an important aspect of learning any kind of material, it allows y
 |ReqID|Requirement|test method|TestID|
 |---|---|--|---|
 |1. |The system shall provide a way to log into the site.|inspection| |
-|1.1 |The system shall display a login screen to the user.|test|1|
+|1.1 |The system shall display a login screen to the user.|analysis| |
 |1.1.1|The system shall verify the user has entered a username|test|1|
-|1.1.2|The system shall verify the user has entered the correct password for that user.|analysis| |
-|1.1.3|The system shall update the user database entry of last logon with current time.|inspection| |
+|1.1.2|The system shall verify the user has entered the correct password for that user.|test|2|
+|1.1.3|The system shall update the user database entry of last logon with current time.|test|3|
 |2. |The system shall provide a way for a new user to register for the site.|inspection| |
-|2.1 |The system shall display a register user screen.|test|1|
-|2.1.1|The system shall verify the user has entered a unique username|test|1|
-|2.1.2|The system shall verify if the user has entered a secure password|analysis| |
-|2.1.3|The system shall verify that a valid email was provided.|inspection| |
-|2.1.4|The system shall create a new user in database if all information is valid|inspection| |
+|2.1 |The system shall display a register user screen.|analysis| |
+|2.1.1|The system shall verify the user has entered a unique username|test|4|
+|2.1.2|The system shall verify if the user has entered a secure password|test|5|
+|2.1.3|The system shall verify that a valid email was provided.|test|6|
+|2.1.4|The system shall create a new user in database if all information is valid|test|7|
 |3. |The system shall allow the user to create a new notebook.|inspection| |
-|3.1 |The system shall present a window to create a new notebook.|test|1|
-|3.1.1|The system shall show a text box to input the notebook name.|test|1|
-|3.1.2|The system shall verify the information is correct.|analysis| |
-|3.1.3|The system shall verify the information is correct.|inspection| |
+|3.1 |The system shall present a window to create a new notebook.|analysis| |
+|3.1.1|The system shall show a text box to input the notebook name.|test|8|
+|3.1.2|The system shall verify the information is correct.|test|9|
+|3.1.3|The system shall verify the information is correct.|test|10|
 |4. |The system shall allow the user to create a new note.|inspection| |
-|4.1 |The system shall present a window to create a new note.|test|1|
-|4.1.1|The system shall show a text box to input the note name.|test|1|
-|4.1.2|The system shall verify the information is correct.|analysis| |
-|4.1.3|The system shall insert a new note into the database.|inspection| |
+|4.1 |The system shall present a window to create a new note.|analysis| |
+|4.1.1|The system shall show a text box to input the note name.|test|11|
+|4.1.2|The system shall verify the information is correct.|test|12|
+|4.1.3|The system shall insert a new note into the database.|test|13|
 |5. |The system shall allow the user to edit created notebooks.|inspection| |
-|5.1 |The system shall show an edit screen when the icon is clicked on.|test|1|
-|5.1.1|The system shall allow the user to change the notebook name.|test|1|
-|5.1.2|The system shall allow the user to change the accessibility of the notebook.|analysis| |
-|5.1.3|The system shall allow the user to save changes to the database.|inspection| |
+|5.1 |The system shall show an edit screen when the icon is clicked on.|analysis|1|
+|5.1.1|The system shall allow the user to change the notebook name.|test|14|
+|5.1.2|The system shall allow the user to change the accessibility of the notebook.|test|15|
+|5.1.3|The system shall allow the user to save changes to the database.|test|16|
 
 ## Tests
 |testID|Req|Test proc|current|time|
 |---|---|---|---|---|
-|1|2,3.0|From the console, enter..., result should be 42...|not tested| |
-|2|5|Auth.user selects open from menu item and is presented file dialog|not tested| |
-|3|4|user enters incorrect password and "forgot password" link appears on page"|passed|26Feb2021|
-|4|6|(unit-tested)enter 42 as input to the calculate dialog, result should be 7|passed|3Mar2021|  
+|1|1.1.1|From the console, enter..., result should be 42...|not tested| |
+|2|1.1.2|Auth.user selects open from menu item and is presented file dialog|not tested| |
+|3|1.1.3|From the console, enter..., result should be 42...|not tested| |
+|4|2.1.1|Auth.user selects open from menu item and is presented file dialog|not tested| |
+|5|2.1.2|From the console, enter..., result should be 42...|not tested| |
+|6|2.1.3|Auth.user selects open from menu item and is presented file dialog|not tested| |
+|7|2.1.4|From the console, enter..., result should be 42...|not tested| |
+|8|3.1.1|Auth.user selects open from menu item and is presented file dialog|not tested| |
+|9|3.1.2|From the console, enter..., result should be 42...|not tested| |
+|10|3.1.3|Auth.user selects open from menu item and is presented file dialog|not tested| |
+|11|4.1.1|From the console, enter..., result should be 42...|not tested| |
+|12|4.1.2|Auth.user selects open from menu item and is presented file dialog|not tested| |
+|13|4.1.3|From the console, enter..., result should be 42...|not tested| |
+|14|5.1.1|Auth.user selects open from menu item and is presented file dialog|not tested| |
+|15|5.1.2|From the console, enter..., result should be 42...|not tested| |
+|16|5.1.3|Auth.user selects open from menu item and is presented file dialog|not tested| |
+
+
 
  
