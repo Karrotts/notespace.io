@@ -92,26 +92,43 @@ Note taking is an important aspect of learning any kind of material, it allows y
 		2. The system shall allow the user to change the accessibility of the notebook.
 		3. The system shall allow the user to change the color of the notebook.
 		4. The system shall allow the user to save changes to the database.
-6. The system shall allow the user to edit created notes.
-	1. The system shall show a pencil icon for edit.
-	2. The system shall show an edit screen when the icon is clicked on.
-		1. The system shall allow the user to change the notebook name.
-		2. The system shall allow the user to save changes to the database.
-7. The system shall allow the user to delete created notebooks.
-	1. The system shall show a trash can icon for delete.
-	2. The system shall show a delete screen when the icon is clicked on.
-		2. The system shall delete entry from database.
-8. The system shall allow the user to delete created notes.
-	1. The system shall show a trash can icon for delete.
-	2. The system shall show a delete screen when the icon is clicked on.
-		2. The system shall delete entry from database.
-9. The system should provide a way to view public notes.
-	1. The system shall show a screen which shows all publically viewable notebooks.
-		1. The system shall sort notebooks by the most recently modified notebooks.
-10. The system should provide a way to search for public notes.
-	1. The system shall display a search bar.
-		1. The system shall allow the user to search by username.
-		2. The system shall allow the user to search by notebook name.
 
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
+|ReqID|Requirement|test method|TestID|
+|---|---|--|---|
+|1. |The system shall provide a way to log into the site.|inspection| |
+|1.1 |The system shall display a login screen to the user.|test|1|
+|1.1.1|The system shall verify the user has entered a username|test|1|
+|1.1.2|The system shall verify the user has entered the correct password for that user.|analysis| |
+|1.1.3|The system shall update the user database entry of last logon with current time.|inspection| |
+|2. |The system shall provide a way for a new user to register for the site.|inspection| |
+|2.1 |The system shall display a register user screen.|test|1|
+|2.1.1|The system shall verify the user has entered a unique username|test|1|
+|2.1.2|The system shall verify if the user has entered a secure password|analysis| |
+|2.1.3|The system shall verify that a valid email was provided.|inspection| |
+|2.1.4|The system shall create a new user in database if all information is valid|inspection| |
+|3. |The system shall allow the user to create a new notebook.|inspection| |
+|3.1 |The system shall present a window to create a new notebook.|test|1|
+|3.1.1|The system shall show a text box to input the notebook name.|test|1|
+|3.1.2|The system shall verify the information is correct.|analysis| |
+|3.1.3|The system shall verify the information is correct.|inspection| |
+|4. |The system shall allow the user to create a new note.|inspection| |
+|4.1 |The system shall present a window to create a new note.|test|1|
+|4.1.1|The system shall show a text box to input the note name.|test|1|
+|4.1.2|The system shall verify the information is correct.|analysis| |
+|4.1.3|The system shall insert a new note into the database.|inspection| |
+|5. |The system shall allow the user to edit created notebooks.|inspection| |
+|5.1 |The system shall show an edit screen when the icon is clicked on.|test|1|
+|5.1.1|The system shall allow the user to change the notebook name.|test|1|
+|5.1.2|The system shall allow the user to change the accessibility of the notebook.|analysis| |
+|5.1.3|The system shall allow the user to save changes to the database.|inspection| |
+
+## testing
+|testID|Req|Test proc|current|time|
+|---|---|---|---|---|
+|1|2,3.0|From the console, enter..., result should be 42...|not tested| |
+|2|5|Auth.user selects open from menu item and is presented file dialog|not tested| |
+|3|4|user enters incorrect password and "forgot password" link appears on page"|passed|26Feb2021|
+|4|6|(unit-tested)enter 42 as input to the calculate dialog, result should be 7|passed|3Mar2021|  
+
  
