@@ -6,11 +6,12 @@ Markdown Note Taking Application
 2. [Database Diagram](https://github.com/Karrotts/notespace.io#database-diagram)
 3. [Draft Wireframe](https://github.com/Karrotts/notespace.io#draft-wireframe)
 4. [Requirements](https://github.com/Karrotts/notespace.io#requirements)
-	1. [User Stories]()
-	2. [Use-Cases]()
-	3. [Use-Case Diagram]()
-	4. [Individual Requirements]()
-5. [Test Planning & RTM]()  
+	1. [User Stories](https://github.com/Karrotts/notespace.io#user-stories)
+	2. [Use-Cases](https://github.com/Karrotts/notespace.io#use-cases)
+	3. [Use-Case Diagram](https://github.com/Karrotts/notespace.io#use-case-diagram)
+	4. [Individual Requirements](https://github.com/Karrotts/notespace.io#individual-requirements)
+5. [Requirements And Test Methods](https://github.com/Karrotts/notespace.io#requirements-and-test-methods)
+6. [Tests](https://github.com/Karrotts/notespace.io#tests)
 
 ## Concept
 Note taking is an important aspect of learning any kind of material, it allows you to look back at important topics or sections in which you may struggle with. Taking notes allows you to write material into your own words which helps with retaining the information you have learned. A major problem with most note taking applications is formatting the information in a clear concise manner. This application attempts to solve that by allowing users to quickly transform notes into a well formatted documents using Markdown.
@@ -94,6 +95,8 @@ Note taking is an important aspect of learning any kind of material, it allows y
 		4. The system shall allow the user to save changes to the database.
 
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
+
+## Requirements and Test Methods
 |ReqID|Requirement|test method|TestID|
 |---|---|--|---|
 |1. |The system shall provide a way to log into the site.|inspection| |
@@ -123,7 +126,7 @@ Note taking is an important aspect of learning any kind of material, it allows y
 |5.1.2|The system shall allow the user to change the accessibility of the notebook.|analysis| |
 |5.1.3|The system shall allow the user to save changes to the database.|inspection| |
 
-## testing
+## Tests
 |testID|Req|Test proc|current|time|
 |---|---|---|---|---|
 |1|2,3.0|From the console, enter..., result should be 42...|not tested| |
