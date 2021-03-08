@@ -121,7 +121,7 @@ Note taking is an important aspect of learning any kind of material, it allows y
 |4.1.2|The system shall verify the information is correct.|test|12|
 |4.1.3|The system shall insert a new note into the database.|test|13|
 |5. |The system shall allow the user to edit created notebooks.|inspection| |
-|5.1 |The system shall show an edit screen when the icon is clicked on.|analysis|1|
+|5.1 |The system shall show an edit screen when the icon is clicked on.|analysis| |
 |5.1.1|The system shall allow the user to change the notebook name.|test|14|
 |5.1.2|The system shall allow the user to change the accessibility of the notebook.|test|15|
 |5.1.3|The system shall allow the user to save changes to the database.|test|16|
@@ -129,15 +129,15 @@ Note taking is an important aspect of learning any kind of material, it allows y
 ## Tests
 |testID|Req|Test proc|current|time|
 |---|---|---|---|---|
-|1|1.1.1|From the console, enter..., result should be 42...|not tested| |
-|2|1.1.2|Auth.user selects open from menu item and is presented file dialog|not tested| |
-|3|1.1.3|From the console, enter..., result should be 42...|not tested| |
-|4|2.1.1|Auth.user selects open from menu item and is presented file dialog|not tested| |
-|5|2.1.2|From the console, enter..., result should be 42...|not tested| |
-|6|2.1.3|Auth.user selects open from menu item and is presented file dialog|not tested| |
-|7|2.1.4|From the console, enter..., result should be 42...|not tested| |
-|8|3.1.1|Auth.user selects open from menu item and is presented file dialog|not tested| |
-|9|3.1.2|From the console, enter..., result should be 42...|not tested| |
+|1|1.1.1|From the textbox, on submit, result should not be empty and contain only alphanumeric characters|not tested| |
+|2|1.1.2|From the textbox, on submit, result should match hashed password in database to the appropriate user|not tested| |
+|3|1.1.3|On form submit, user's last login date will be updated to current date/time|not tested| |
+|4|2.1.1|From the textbox, on submit,result check if the user already exists in the database, render error information if they already exist.|not tested| |
+|5|2.1.2|From the textbox, on submit, result check if the user has entered a password containing at least 8 characters, with at least 1 upper and 1 lowercase character|not tested| |
+|6|2.1.3|From the textbox, on submit, check if the provided email address is in the correct format|not tested| |
+|7|2.1.4|On submit, if information is valid in form, result should be a new user in the database. |not tested| |
+|8|3.1.1|On form load, if user is logged in, display notebook name space or send to login page|not tested| |
+|9|3.1.2|.|not tested| |
 |10|3.1.3|Auth.user selects open from menu item and is presented file dialog|not tested| |
 |11|4.1.1|From the console, enter..., result should be 42...|not tested| |
 |12|4.1.2|Auth.user selects open from menu item and is presented file dialog|not tested| |
