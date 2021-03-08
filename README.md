@@ -114,7 +114,7 @@ Note taking is an important aspect of learning any kind of material, it allows y
 |3.1 |The system shall present a window to create a new notebook.|analysis| |
 |3.1.1|The system shall show a text box to input the notebook name.|test|8|
 |3.1.2|The system shall verify the information is correct.|test|9|
-|3.1.3|The system shall verify the information is correct.|test|10|
+|3.1.3|The system shall insert a new notebook into the database|test|10|
 |4. |The system shall allow the user to create a new note.|inspection| |
 |4.1 |The system shall present a window to create a new note.|analysis| |
 |4.1.1|The system shall show a text box to input the note name.|test|11|
@@ -137,14 +137,14 @@ Note taking is an important aspect of learning any kind of material, it allows y
 |6|2.1.3|From the textbox, on submit, check if the provided email address is in the correct format|not tested| |
 |7|2.1.4|On submit, if information is valid in form, result should be a new user in the database. |not tested| |
 |8|3.1.1|On form load, if user is logged in, display notebook name space or send to login page|not tested| |
-|9|3.1.2|.|not tested| |
-|10|3.1.3|Auth.user selects open from menu item and is presented file dialog|not tested| |
-|11|4.1.1|From the console, enter..., result should be 42...|not tested| |
-|12|4.1.2|Auth.user selects open from menu item and is presented file dialog|not tested| |
-|13|4.1.3|From the console, enter..., result should be 42...|not tested| |
-|14|5.1.1|Auth.user selects open from menu item and is presented file dialog|not tested| |
-|15|5.1.2|From the console, enter..., result should be 42...|not tested| |
-|16|5.1.3|Auth.user selects open from menu item and is presented file dialog|not tested| |
+|9|3.1.2|On form submit, result should validate provided data and correct any errors. |not tested| |
+|10|3.1.3|On form submit, result should insert new notebook into database.|not tested| |
+|11|4.1.1|On form load, if user is logged in, display note name space or send to login page|not tested| |
+|12|4.1.2|On form submit, result should validate provided data and correct any errors.|not tested| |
+|13|4.1.3|On form submit, result should insert new note into database.|not tested| |
+|14|5.1.1|On form load, it should populate texbox with current notebook name, on submit result new name updated in database.|not tested| |
+|15|5.1.2|On form load, it should populate on/off switch for public/private, on submit result, accessibility should be modified.|not tested| |
+|16|5.1.3|On form submit result, if changes were made to data, update data in database.|not tested| |
 
 
 
