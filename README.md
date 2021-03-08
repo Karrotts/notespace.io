@@ -57,7 +57,7 @@ Note taking is an important aspect of learning any kind of material, it allows y
 
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
 
-## Use-Case Diagram (UML)
+## Use-Case Diagram
 ![UML](/requirements/uml.png)
 
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
