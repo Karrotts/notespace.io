@@ -15,14 +15,17 @@ Markdown Note Taking Application
 
 ## Concept
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
+
 Note taking is an important aspect of learning any kind of material, it allows you to look back at important topics or sections in which you may struggle with. Taking notes allows you to write material into your own words which helps with retaining the information you have learned. A major problem with most note taking applications is formatting the information in a clear concise manner. This application attempts to solve that by allowing users to quickly transform notes into a well formatted documents using Markdown.
 
 ## Database Diagram
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
+
 ![Database Diagram](/database/ERD.png)
 
 # Draft wireframe
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
+
 #### Login Page
 ![Login Page](/wireframe/login.png)
 #### Home Page
@@ -37,6 +40,7 @@ Note taking is an important aspect of learning any kind of material, it allows y
 ## Requirements
 ## User stories
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
+
 * As a student, I need website where I can view, store, and edit my markdown formatted notes, so that I can convienently access them from anywhere.
 * As a developer, I need to write documentation for a code project and be able to link my documentation together, so that other developers can view the documentation in a clear consise format.
 * As a life-long learner, I want a website where I can view other peoples notes, so that I can learn from other peoples experiences.
@@ -44,6 +48,7 @@ Note taking is an important aspect of learning any kind of material, it allows y
 
 ## Use Cases
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
+
 * Given a new user, when logging into the site, then ask the user to register for a new account.
 * Given a registered user and on the home page, when selecting new notebook, then display the new notebook window.
 * Given a registered user and on the home page, when selecting new note, then display the new note window.
@@ -55,10 +60,12 @@ Note taking is an important aspect of learning any kind of material, it allows y
 
 ## Use-Case Diagram
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
+
 ![UML](/requirements/uml.png)
 
 ## Individual Requirements
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
+
 1. The system shall provide a way to log into the site.
 	1. The system shall display a login screen to the user
 		1. The system shall verify the user has entered a username
@@ -92,6 +99,7 @@ Note taking is an important aspect of learning any kind of material, it allows y
 
 ## Requirements and Test Methods
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
+
 |ReqID|Requirement|test method|TestID|
 |---|---|--|---|
 |1. |The system shall provide a way to log into the site.|inspection| |
@@ -123,6 +131,7 @@ Note taking is an important aspect of learning any kind of material, it allows y
 
 ## Tests
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
+
 |testID|Req|Test proc|current|time|
 |---|---|---|---|---|
 |1|1.1.1|From the textbox, on submit, result should not be empty and contain only alphanumeric characters|not tested| |
