@@ -2,16 +2,16 @@
 Markdown Note Taking Application
 
 ## Table Of Contents
-1. [Concept](https://github.com/Karrotts/notespace.io#concept)
-2. [Database Diagram](https://github.com/Karrotts/notespace.io#database-diagram)
-3. [Draft Wireframe](https://github.com/Karrotts/notespace.io#draft-wireframe)
-4. [Requirements](https://github.com/Karrotts/notespace.io#requirements)
-	1. [User Stories](https://github.com/Karrotts/notespace.io#user-stories)
-	2. [Use-Cases](https://github.com/Karrotts/notespace.io#use-cases)
-	3. [Use-Case Diagram](https://github.com/Karrotts/notespace.io#use-case-diagram)
-	4. [Individual Requirements](https://github.com/Karrotts/notespace.io#individual-requirements)
-5. [Requirements And Test Methods](https://github.com/Karrotts/notespace.io#requirements-and-test-methods)
-6. [Tests](https://github.com/Karrotts/notespace.io#tests)
+1. [Concept](#concept)
+2. [Database Diagram](#database-diagram)
+3. [Draft Wireframe](#draft-wireframe)
+4. [Requirements](#requirements)
+	1. [User Stories](#user-stories)
+	2. [Use-Cases](#use-cases)
+	3. [Use-Case Diagram](#use-case-diagram)
+	4. [Individual Requirements](#individual-requirements)
+5. [Requirements And Test Methods](#requirements-and-test-methods)
+6. [Tests](#tests)
 7. [Prototype](#prototype)
 
 ## Concept
