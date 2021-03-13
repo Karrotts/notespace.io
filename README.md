@@ -12,6 +12,7 @@ Markdown Note Taking Application
 	4. [Individual Requirements](https://github.com/Karrotts/notespace.io#individual-requirements)
 5. [Requirements And Test Methods](https://github.com/Karrotts/notespace.io#requirements-and-test-methods)
 6. [Tests](https://github.com/Karrotts/notespace.io#tests)
+7. [Prototype](#prototype)
 
 ## Concept
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
