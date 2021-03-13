@@ -12,7 +12,7 @@ Markdown Note Taking Application
 	4. [Individual Requirements](#individual-requirements)
 5. [Requirements And Test Methods](#requirements-and-test-methods)
 6. [Tests](#tests)
-7. [Prototype](#prototype)
+7. [Prototype](https://github.com/Karrotts/notespace.io/tree/main/prototype)
 
 ## Concept
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
@@ -151,8 +151,5 @@ Note taking is an important aspect of learning any kind of material, it allows y
 |14|5.1.1|On form load, it should populate texbox with current notebook name, on submit result new name updated in database.|not tested| |
 |15|5.1.2|On form load, it should populate on/off switch for public/private, on submit result, accessibility should be modified.|not tested| |
 |16|5.1.3|On form submit result, if changes were made to data, update data in database.|not tested| |
-
-## Prototype
-[Interactive Prototype](https://xd.adobe.com/view/c6102a88-f562-4b5e-8998-c8fc14009859-9343/)
 
  
