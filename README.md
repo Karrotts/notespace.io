@@ -24,7 +24,7 @@ Note taking is an important aspect of learning any kind of material, it allows y
 ## Database Diagram
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
 
-![Database Diagram](/database/ERD.png)
+![Database Diagram](/doc/database/ERD.png)
 
 # Draft wireframe
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
