@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Karrotts/notespace.io/blob/main/wireframe/notespace%20logo.JPG?raw=true">
+  <img src="https://github.com/Karrotts/notespace.io/blob/main/doc/wireframe/notespace%20logo.JPG?raw=true">
 </p>
 <p align="center">Markdown note taking application</p>
 
@@ -14,7 +14,7 @@
 	4. [Individual Requirements](#individual-requirements)
 5. [Requirements And Test Methods](#requirements-and-test-methods)
 6. [Tests](#tests)
-7. [Prototype](https://github.com/Karrotts/notespace.io/tree/main/prototype)
+7. [Prototype](https://github.com/Karrotts/notespace.io/tree/main/doc/prototype)
 
 ## Concept
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
@@ -30,15 +30,15 @@ Note taking is an important aspect of learning any kind of material, it allows y
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
 
 #### Login Page
-![Login Page](/wireframe/login.png)
+![Login Page](/doc/wireframe/login.png)
 #### Home Page
-![Home Page](/wireframe/home.png)
+![Home Page](/doc/wireframe/home.png)
 #### Notebook Edit Page
-![Notebook Edit](/wireframe/edit.png)
+![Notebook Edit](/doc/wireframe/edit.png)
 #### Notebook View Page
-![Notebook View](/wireframe/view.png)
+![Notebook View](/doc/wireframe/view.png)
 #### Discover Page
-![Discover Page](/wireframe/discover.png)
+![Discover Page](/doc/wireframe/discover.png)
 
 ## Requirements
 ## User stories
@@ -64,7 +64,7 @@ Note taking is an important aspect of learning any kind of material, it allows y
 ## Use-Case Diagram
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
 
-![UML](/requirements/uml.png)
+![UML](/doc/requirements/uml.png)
 
 ## Individual Requirements
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
