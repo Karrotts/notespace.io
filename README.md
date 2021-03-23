@@ -13,7 +13,7 @@ Note taking is an important aspect of learning any kind of material, it allows y
 ### Wiki
 More information about the project, including requirements, design documents, and more can be found in the **Wiki**.
 
-[Check it out!]()
+[Check it out!](https://github.com/Karrotts/notespace.io/wiki)
 
 ## Built With
 * [ASP.NET](https://dotnet.microsoft.com/apps/aspnet)
