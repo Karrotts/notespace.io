@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="460" height="300" src="">
+  <img src="https://github.com/Karrotts/notespace.io/tree/main/prototype">
 </p>
 Markdown Note Taking Application
 
