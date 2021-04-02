@@ -8,17 +8,15 @@ namespace Notespace.Web.Models
 {
     public class Repository : INotespaceRepository
     {
-        private NotespaceDataContext context;
+        private ApplicationIdentityContext context;
 
-        public Repository (NotespaceDataContext context)
+        public Repository (ApplicationIdentityContext context)
         {
             this.context = context;
         }
 
-        public IQueryable<User> Users => context.User;
+        public IQueryable<Notebook> Notebooks => context.Notebooks;
 
-        public IQueryable<Notebook> Notebooks => context.Notebook;
-
-        public IQueryable<Note> Notes => context.Note;
+        public IQueryable<Note> Notes => context.Notes;
     }
 }

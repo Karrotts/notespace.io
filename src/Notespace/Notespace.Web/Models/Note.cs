@@ -7,10 +7,8 @@ namespace Notespace.Web.Models
     public class Note
     {
         public long NoteID { get; set; }
-        [ForeignKey("NotebookID")]
         public long NotebookID { get; set; }
-        [ForeignKey("UserID")]
-        public long UserID { get; set; }
+        public string UserID { get; set; }
         public string Title { get; set; }
         public bool IsPublic { get; set; }
         public string Text { get; set; }
@@ -18,5 +16,7 @@ namespace Notespace.Web.Models
         public int Order { get; set; }
         [DataType(DataType.Date)]
         public DateTime LastModified { get; set; }
+        public Notebook Notebook { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }

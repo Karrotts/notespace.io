@@ -10,66 +10,23 @@ namespace Notespace.Web.Models
     {
         public static void EnsurePopulated(IApplicationBuilder app)
         {
-            NotespaceDataContext context = app.ApplicationServices.CreateScope()
-                .ServiceProvider.GetRequiredService<NotespaceDataContext>();
+            ApplicationIdentityContext context = app.ApplicationServices.CreateScope()
+                .ServiceProvider.GetRequiredService<ApplicationIdentityContext>();
 
             if (context.Database.GetPendingMigrations().Any())
             {
                 context.Database.Migrate();
             }
 
-            if (!context.User.Any())
+            if (!context.Notebooks.Any())
             {
-                context.User.AddRange(
-                    new User
-                    {
-                        Username = "johnsmith12",
-                        Password = "aldkjflaksdjf",
-                        Email = "jman@tacobell.com",
-                        LastLogon = System.DateTime.Now
-                    },
-                    new User
-                    {
-                        Username = "janedoeiscool",
-                        Password = "aldkjflaksdjf",
-                        Email = "jellyfish@hotmail.com",
-                        LastLogon = System.DateTime.Now
-                    },
-                    new User
-                    {
-                        Username = "wbmill96",
-                        Password = "aldkjflaksdjf",
-                        Email = "me@memememe.com",
-                        LastLogon = System.DateTime.Now
-                    },
-                    new User
-                    {
-                        Username = "susancruzan",
-                        Password = "aldkjflaksdjf",
-                        Email = "miccheck@foreveralone.com",
-                        LastLogon = System.DateTime.Now
-                    },
-                    new User
-                    {
-                        Username = "dogman",
-                        Password = "aldkjflaksdjf",
-                        Email = "woof@rurururu.dog",
-                        LastLogon = System.DateTime.Now
-                    }
-                );
-                context.SaveChanges();
-            }
-
-            if (!context.Notebook.Any())
-            {
-                context.Notebook.AddRange(
+                context.Notebooks.AddRange(
                     new Notebook
                     {
                         Title = "Science Stuff",
                         Color = 1,
                         IsPublic = false,
                         LastModified = System.DateTime.Now,
-                        UserID = context.User.First().UserID
                     },
                     new Notebook
                     {
@@ -77,15 +34,14 @@ namespace Notespace.Web.Models
                         Color = 1,
                         IsPublic = false,
                         LastModified = System.DateTime.Now,
-                        UserID = context.User.First().UserID
                     }
                 );
                 context.SaveChanges();
             }
 
-            if (!context.Note.Any())
+            if (!context.Notes.Any())
             {
-                context.Note.AddRange(
+                context.Notes.AddRange(
                     new Note
                     {
                         Title = "Note Test 1",
@@ -94,7 +50,6 @@ namespace Notespace.Web.Models
                         IsPublic = false,
                         LastModified = System.DateTime.Now,
                         Order = 0,
-                        UserID = context.User.First().UserID
                     },
                     new Note
                     {
@@ -104,8 +59,7 @@ namespace Notespace.Web.Models
                         IsPublic = false,
                         LastModified = System.DateTime.Now,
                         Order = 0,
-                        UserID = context.User.First().UserID,
-                        NotebookID = context.Notebook.First().NotebookID
+                        NotebookID = context.Notebooks.First().NotebookID
                     }
                 );
                 context.SaveChanges();

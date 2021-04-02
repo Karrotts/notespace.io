@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Notespace.Web.Data;
 using Notespace.Web.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Notespace.Web
 {
@@ -28,10 +29,14 @@ namespace Notespace.Web
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<NotespaceDataContext>(options =>
+            //services.AddDbContext<NotespaceDataContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("NotespaceDataContext")));
+            services.AddDbContext<ApplicationIdentityContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("NotespaceDataContext")));
 
-            services.AddScoped<INotespaceRepository, Repository>();
+            //services.AddScoped<INotespaceRepository, Repository>();
+
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationIdentityContext>().AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +46,7 @@ namespace Notespace.Web
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -49,7 +55,7 @@ namespace Notespace.Web
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            SeedData.EnsurePopulated(app);
+            //SeedData.EnsurePopulated(app);
         }
     }
 }
