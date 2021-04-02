@@ -9,6 +9,7 @@ namespace Notespace.Web.Models
         public long NotebookID { get; set; }
         [ForeignKey("UserID")]
         public long UserID { get; set; }
+        public string Title { get; set; }
         public bool IsPublic { get; set; }
         public byte Color { get; set; }
         [DataType(DataType.Date)]

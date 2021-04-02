@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Notespace.Web.Data;
+using Notespace.Web.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Notespace.Web
@@ -29,6 +30,8 @@ namespace Notespace.Web
 
             services.AddDbContext<NotespaceDataContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("NotespaceDataContext")));
+
+            services.AddScoped<INotespaceRepository, Repository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +49,7 @@ namespace Notespace.Web
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            SeedData.EnsurePopulated(app);
         }
     }
 }
