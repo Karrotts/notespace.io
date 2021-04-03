@@ -1,0 +1,35 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+<div class="notespace_gradient gradient_background">
+    <div class="circle top_left notespace_gradient"></div>
+    <div class="circle bottom_right notespace_gradient"></div>
+    <div class="login">
+        <div class="main_container">
+            <div class="inner_container">
+                <h1 class="title">Login</h1>
+                <p style="margin-top: 15px;">
+                    Don't have an account?
+                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Sign Up</a>
+                </p>
+                <form id="account" method="post">
+                    <label asp-for="Input.Email">Email</label><br>
+                    <input asp-for="Input.Email" type="text" placeholder="Email"><br>
+                    <label asp-for="Input.Password">Password</label><br>
+                    <input asp-for="Input.Password" type="password" placeholder="*********"><br>
+                    <button type="submit">LOGIN</button>
+                </form>
+            </div>
+            <div class="logo">
+                <img src="/imgs/laptop.svg" alt="Laptop with notespace login">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

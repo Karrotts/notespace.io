@@ -1,0 +1,170 @@
+$notespace-blue: #466EAB;
+$notespace-green: rgb(59, 156, 80);
+$notespace-font: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+
+$color-offwhite: #F5F5F5;
+
+body
+{
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+a
+{
+    text-decoration: note;
+    color: $notespace-green;
+}
+
+.notespace_gradient
+{
+    background: linear-gradient(45deg, $notespace-blue, $notespace-green);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.circle
+{
+    width: 100vw;
+    height: 100vh;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.top_left
+{
+    position: absolute;
+    height: 100vh;
+    width: 100vh;
+    right: 50vw;
+    top: -50vh;
+    -ms-transform: rotate(60deg); /* IE 9 */
+    transform: rotate(60deg);
+}
+.bottom_right
+{
+    position: absolute;
+    height: 140vh;
+    width: 140vh;
+    left: 50vw;
+    top: 30vh;
+    -ms-transform: rotate(40deg); /* IE 9 */
+    transform: rotate(40deg);
+}
+
+.login
+{
+    .main_container
+    {
+        background: $color-offwhite;
+        width: 100vw;
+        height: 100vh;
+        max-width: 1080px;
+        max-height: 600px;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        box-shadow: 6px 6px 10px rgba($color: #000000, $alpha: .16);
+        z-index: 1;
+        display: flex;
+    }
+
+    .inner_container
+    {
+        background: white;
+        float: left;
+        width: 390px;
+        height: 520px;
+        margin: 40px 70px;
+        box-sizing: border-box;
+        padding: 49px 43px;
+        font-family: $notespace-font;
+        box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .16);
+        flex: 0;
+    }
+
+    .title
+    {
+        margin: 0;
+        font-weight: 400;
+        letter-spacing: 2px;
+    }
+
+    .logo
+    {
+        flex: 1; 
+        width: 50%;
+        margin-top: 8%;
+        transform-origin: center;
+        margin-right: 40px;
+    }
+
+    input
+    {
+        width: 293px;
+        height: 58px;
+        font-size: 18px;
+        margin-top: 8px;
+        margin-bottom: 25px;
+        background: $color-offwhite;
+        padding-left: 10px;
+        border: 0;
+        box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .16);
+    }
+
+    button
+    {
+        width: 298px;
+        height: 58px;
+        background: $notespace-blue;
+        margin-top: 20px;
+        color: white;
+        letter-spacing: 2px;
+        font-size: 16px;
+        font-weight: 500;
+        border: 0;
+        border-radius: 5px;
+        box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .16);
+    }
+}
+
+@media only screen and (max-width: 1140px)
+{
+    .login
+    {
+        .main_container
+        {
+            display: inline-block;
+            width: initial;
+        }
+
+        .inner_container
+        {
+        }
+
+        .logo
+        {
+            display: none;
+            width: 0px;
+            height: 0px;
+        }
+    }
+}
+
+@media only screen and (max-width: 560px)
+{
+    .login
+    {
+        .main_container
+        {
+            background: none;
+            box-shadow: none;
+        }
+    }
+}
