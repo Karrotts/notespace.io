@@ -3,20 +3,25 @@ $notespace-green: rgb(59, 156, 80);
 $notespace-font: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
 
 $color-offwhite: #F5F5F5;
+$color-error: rgb(206, 27, 27);
 
 body
 {
-    position: relative;
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
     margin: 0;
 }
 
 a
 {
-    text-decoration: note;
+    text-decoration: none;
     color: $notespace-green;
+}
+
+.login_background
+{
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
 }
 
 .notespace_gradient
@@ -31,7 +36,7 @@ a
     width: 100vw;
     height: 100vh;
     border-radius: 50%;
-    z-index: -1;
+    z-index: 1;
 }
 
 .top_left
@@ -61,9 +66,7 @@ a
     {
         background: $color-offwhite;
         width: 100vw;
-        height: 100vh;
         max-width: 1080px;
-        max-height: 600px;
         margin: 0;
         position: absolute;
         top: 50%;
@@ -75,18 +78,27 @@ a
         display: flex;
     }
 
+    .register
+    {
+        display: inline-block !important;
+        width: initial;
+    }
+
     .inner_container
     {
         background: white;
-        float: left;
-        width: 390px;
-        height: 520px;
         margin: 40px 70px;
         box-sizing: border-box;
         padding: 49px 43px;
         font-family: $notespace-font;
         box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .16);
-        flex: 0;
+    }
+
+    .header_logo
+    {
+        display: none;
+        width: 70%;
+        margin-bottom: 25px;
     }
 
     .title
@@ -103,6 +115,11 @@ a
         margin-top: 8%;
         transform-origin: center;
         margin-right: 40px;
+    }
+
+    .error_text
+    {
+        color: $color-error
     }
 
     input
@@ -144,15 +161,16 @@ a
             width: initial;
         }
 
-        .inner_container
-        {
-        }
-
         .logo
         {
             display: none;
             width: 0px;
             height: 0px;
+        }
+
+        .header_logo
+        {
+            display: block;
         }
     }
 }
@@ -166,5 +184,17 @@ a
             background: none;
             box-shadow: none;
         }
+    }
+}
+
+@media only screen and (max-height: 600px) {
+    .circle
+    {
+        display: none;
+    }
+
+    .login_background
+    {
+        overflow-y: initial;
     }
 }
