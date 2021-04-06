@@ -33,9 +33,9 @@ namespace Notespace.Web
             services.AddDbContext<ApplicationIdentityContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("NotespaceDataContext")));
 
-            //services.AddScoped<INotespaceRepository, Repository>();
+            services.AddScoped<INotespaceRepository, Repository>();
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationIdentityContext>();
         }
 

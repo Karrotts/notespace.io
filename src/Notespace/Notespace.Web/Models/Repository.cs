@@ -18,5 +18,7 @@ namespace Notespace.Web.Models
         public IQueryable<Notebook> Notebooks => context.Notebooks;
 
         public IQueryable<Note> Notes => context.Notes;
+
+        public IQueryable<ApplicationUser> Users => context.Users;
     }
 }

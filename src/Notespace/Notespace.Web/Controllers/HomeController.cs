@@ -18,7 +18,7 @@ namespace Notespace.Web.Controllers
             {
                 return View();
             }
-            return Redirect("./Account/Login");
+            return Redirect("./account/login");
         }
 
         [Authorize]
