@@ -7,7 +7,7 @@
             <div class="inner_container">
                 <img class="header_logo" src="/imgs/logo_color.svg">
                 <h1 class="title">Login</h1>
-                <p style="margin-top: 15px; margin-bottom: 5px;">Don't have an account? <a href="#">Sign Up</a></p>
+                <p style="margin-top: 15px; margin-bottom: 5px;">Don't have an account? <a asp-controller="account" asp-action="register">Sign Up</a></p>
                 <form asp-action="Login" asp-controller="Account" method="post">
                     <label id="error" class="error_text"></label><br>
                     <label asp-for="Name">Username</label><br>

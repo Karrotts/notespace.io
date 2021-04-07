@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Notespace.Web.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace Notespace.Web.Models
 {
@@ -63,6 +64,33 @@ namespace Notespace.Web.Models
                     }
                 );
                 context.SaveChanges();
+            }
+        }
+    }
+
+    public class SeedUser
+    {
+        private const string adminPassword = "Secret123$";
+        public static async void EnsurePopulated(IApplicationBuilder app)
+        {
+            ApplicationIdentityContext context = app.ApplicationServices
+            .CreateScope().ServiceProvider
+            .GetRequiredService<ApplicationIdentityContext>();
+            if (context.Database.GetPendingMigrations().Any())
+            {
+                context.Database.Migrate();
+            }
+            UserManager<ApplicationUser> userManager = app.ApplicationServices
+            .CreateScope().ServiceProvider
+            .GetRequiredService<UserManager<ApplicationUser>>();
+            ApplicationUser user = await userManager.FindByIdAsync("Karrotts");
+            if (user == null)
+            {
+                user = new ApplicationUser();
+                user.UserName = "Karrotts";
+                user.Email = "admin@example.com";
+                user.PhoneNumber = "555-1234";
+                await userManager.CreateAsync(user, adminPassword);
             }
         }
     }

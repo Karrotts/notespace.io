@@ -27,6 +27,14 @@ namespace Notespace.Web.Controllers
             });
         }
 
+        public ViewResult Register(string returnUrl)
+        {
+            return View(new RegisterModel
+            { 
+                ReturnUrl = returnUrl
+            });
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel loginModel)
@@ -47,6 +55,23 @@ namespace Notespace.Web.Controllers
             }
             ModelState.AddModelError("", "Invalid name or password");
             return View(loginModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterModel registerModel)
+        {
+            if (registerModel.Password != registerModel.ConfirmPassword) return View(new RegisterModel { ErrorMessage = "Passwords do not match!" });
+            if (ModelState.IsValid)
+            {
+                ApplicationUser user = new ApplicationUser { UserName = registerModel.Username, Email = registerModel.Email };
+                var result = await userManager.CreateAsync(user, registerModel.Password);
+                if (result.Succeeded)
+                {
+                    return Redirect("/");
+                }
+            }
+            return View(new RegisterModel { ErrorMessage = "Unable to create user!" });
         }
 
         [Authorize]

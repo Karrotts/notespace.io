@@ -56,7 +56,7 @@ namespace Notespace.Web
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-            //SeedData.EnsurePopulated(app);
+            SeedUser.EnsurePopulated(app);
         }
     }
 }
