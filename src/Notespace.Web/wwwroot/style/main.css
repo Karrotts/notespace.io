@@ -15,7 +15,7 @@ a {
 }
 
 .notespace_gradient {
-    background: linear-gradient(45deg, #466EAB, #3b9c50);
+    background: linear-gradient(45deg, #466EAB, #3b9c50) !important;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -136,6 +136,40 @@ a {
     border-radius: 5px;
     -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+}
+
+.navigation {
+    -webkit-box-shadow: 3px 0px 6px rgba(0, 0, 0, 0.38);
+    box-shadow: 3px 0px 6px rgba(0, 0, 0, 0.38);
+}
+
+    .navigation .active {
+        background: #466EAB !important;
+    }
+
+    .navigation .logo {
+        margin: auto;
+    }
+
+    .navigation .btn {
+        width: 86%;
+        background: #214468;
+        color: white;
+        bottom: 10px;
+        position: absolute;
+        -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+        font-weight: 500;
+    }
+
+.main {
+    background: white;
+    margin: 20px 30px;
+    width: 90vw;
+    -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+    overflow-y: scroll;
+    max-height: 90% !important;
 }
 
 @media only screen and (max-width: 1140px) {
