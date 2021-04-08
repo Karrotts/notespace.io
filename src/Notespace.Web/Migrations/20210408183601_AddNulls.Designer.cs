@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Notespace.Web.Data;
 
 namespace Notespace.Web.Migrations
 {
     [DbContext(typeof(ApplicationIdentityContext))]
-    partial class ApplicationIdentityContextModelSnapshot : ModelSnapshot
+    [Migration("20210408183601_AddNulls")]
+    partial class AddNulls
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

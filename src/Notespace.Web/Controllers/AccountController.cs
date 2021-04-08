@@ -68,7 +68,12 @@ namespace Notespace.Web.Controllers
                 var result = await userManager.CreateAsync(user, registerModel.Password);
                 if (result.Succeeded)
                 {
-                    return Redirect("/");
+                    await signInManager.SignOutAsync();
+                    if ((await signInManager.PasswordSignInAsync(registerModel.Username,
+                    registerModel.Password, false, false)).Succeeded)
+                    {
+                        return Redirect(registerModel?.ReturnUrl ?? "/");
+                    }
                 }
             }
             return View(new RegisterModel { ErrorMessage = "Unable to create user!" });

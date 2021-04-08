@@ -182,13 +182,13 @@ namespace Notespace.Web.Migrations
                 {
                     NoteID = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NotebookID = table.Column<long>(nullable: false),
+                    NotebookID = table.Column<long>(nullable: true),
                     UserID = table.Column<string>(nullable: true),
                     Title = table.Column<string>(nullable: true),
                     IsPublic = table.Column<bool>(nullable: false),
                     Text = table.Column<string>(nullable: true),
                     HTML = table.Column<string>(nullable: true),
-                    Order = table.Column<int>(nullable: false),
+                    Order = table.Column<int>(nullable: true),
                     LastModified = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>

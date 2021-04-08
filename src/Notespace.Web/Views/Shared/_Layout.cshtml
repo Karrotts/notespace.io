@@ -17,7 +17,38 @@
     <title>notespace.io</title>
 </head>
 <body>
-    @RenderBody()
+    <div style="background: #F3F3F3; overflow: hidden;">
+        <div class="d-flex">
+            <div class="flex-column p-3 text-white navigation notespace_gradient" style="width: 280px; height: 100vh; position: relative;">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <img class="logo" src="/imgs/logo_white.svg" style="width: 70%" />
+                </a>
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a asp-controller="Home" class="nav-link @(ViewContext.RouteData.Values["controller"].ToString().Equals("Home") ? "active" : "text-white")">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link @(ViewContext.RouteData.Values["controller"].ToString().Equals("Notebooks") ? "active" : "text-white")">
+                            <i class="fas fa-book"></i> Notebooks
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Notes" class="nav-link @(ViewContext.RouteData.Values["controller"].ToString().Equals("Notes") ? "active" : "text-white")">
+                            <i class="far fa-sticky-note"></i> Notes
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+                <a class="btn" asp-controller="Account" asp-action="Logout">LOGOUT  <i class="fas fa-sign-out-alt"></i></a>
+            </div>
+            <div class="p-5 flex-column main">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

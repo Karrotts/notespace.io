@@ -7,7 +7,7 @@ namespace Notespace.Web.Models
     public class Note
     {
         public long NoteID { get; set; }
-        public long NotebookID { get; set; }
+        public long? NotebookID { get; set; }
         public string UserID { get; set; }
         public string Title { get; set; }
         public bool IsPublic { get; set; }
