@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Notespace.Web.Data;
 using Notespace.Web.Models;
+using ConvertMarkdown;
 
 namespace Notespace.Web.Controllers
 {
@@ -30,7 +31,10 @@ namespace Notespace.Web.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationIdentityContext = _context.Notes.Include(n => n.Notebook).Include(n => n.User);
-            return View(await applicationIdentityContext.Where(n => n.UserID == userManager.GetUserId(User)).ToListAsync());
+            return View(await applicationIdentityContext
+                              .Where(n => n.UserID == userManager.GetUserId(User))
+                              .OrderByDescending(n => n.LastModified)
+                              .ToListAsync());
         }
 
         // GET: Notes/Details/5
@@ -64,11 +68,13 @@ namespace Notespace.Web.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NoteID,Title,IsPublic,Text,HTML,Order")] Note note)
+        public async Task<IActionResult> Create([Bind("NoteID,Title,IsPublic,Text")] Note note)
         {
             note.LastModified = DateTime.Now;
             note.UserID = userManager.GetUserId(User);
             note.NotebookID = null;
+            note.HTML = Markdown.Convert(note.Text.Split('\n').ToList());
+            note.Order = 0;
 
             if (ModelState.IsValid)
             {
@@ -76,7 +82,7 @@ namespace Notespace.Web.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["NotebookID"] = new SelectList(_context.Notebooks, "NotebookID", "NotebookID", note.NotebookID);
+
             ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", note.UserID);
             return View(note);
         }
@@ -104,12 +110,18 @@ namespace Notespace.Web.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("NoteID,NotebookID,UserID,Title,IsPublic,Text,HTML,Order,LastModified")] Note note)
+        public async Task<IActionResult> Edit(long id, [Bind("NoteID,Title,IsPublic,Text")] Note note)
         {
             if (id != note.NoteID)
             {
                 return NotFound();
             }
+
+            note.LastModified = DateTime.Now;
+            note.UserID = userManager.GetUserId(User);
+            note.NotebookID = null;
+            note.HTML = Markdown.Convert(note.Text.Split('\n').ToList());
+            note.Order = 0;
 
             if (ModelState.IsValid)
             {
@@ -129,7 +141,7 @@ namespace Notespace.Web.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Details", new { id = note.NoteID });
             }
             ViewData["NotebookID"] = new SelectList(_context.Notebooks, "NotebookID", "NotebookID", note.NotebookID);
             ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", note.UserID);

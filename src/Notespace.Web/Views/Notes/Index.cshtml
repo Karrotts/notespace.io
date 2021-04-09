@@ -2,68 +2,16 @@
 @{
     ViewData["Title"] = "Notes";
 }
-<h1>Your Notes</h1>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsPublic)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Text)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HTML)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastModified)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsPublic)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Text)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HTML)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Order)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastModified)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.User.Id)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.NoteID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.NoteID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.NoteID">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="d-flex flex-row flex-wrap">
+    <h2 class="display-6">Your Notes</h2>
+    <a asp-action="Create" class="p-3" style="margin-left: auto;"><i class="far fa-plus-square"></i> CREATE</a>
+</div>
+<div class="d-flex flex-column notes">
+    @foreach (var item in Model)
+    {
+        <a asp-action="Details" asp-route-id="@item.NoteID" class="d-flex p-3 note_button">
+            <span><i class="far fa-sticky-note"></i> @item.Title</span>
+            <span style="margin-left: auto;">Last Modified: @item.LastModified</span>
+        </a>
+    }
+</div>

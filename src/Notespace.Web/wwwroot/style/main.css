@@ -144,7 +144,7 @@ a {
 }
 
     .navigation .active {
-        background: #466EAB !important;
+        background: rgba(70, 110, 171, 0.6) !important;
     }
 
     .navigation .logo {
@@ -153,13 +153,43 @@ a {
 
     .navigation .btn {
         width: 86%;
-        background: #214468;
+        background: rgba(33, 68, 104, 0.6) !important;
         color: white;
         bottom: 10px;
         position: absolute;
         -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
         box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
         font-weight: 500;
+    }
+
+.navbar {
+    display: none;
+}
+
+    .navbar .container-fluid {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .navbar button {
+        margin: .5rem .5rem .5rem !important;
+    }
+
+    .navbar img {
+        margin: .5rem .5rem .5rem !important;
+        margin-left: .5rem !important;
+    }
+
+    .navbar ul {
+        padding-left: 10px;
+    }
+
+    .navbar li {
+        padding-left: 15px;
+    }
+
+    .navbar a {
+        color: white !important;
     }
 
 .main {
@@ -172,7 +202,120 @@ a {
     max-height: 90% !important;
 }
 
+    .main .btn {
+        margin-right: 10px;
+    }
+
+.markdown_main {
+    margin-top: 20px;
+    height: 93%;
+    padding: 2rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: #F5F5F5;
+    -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+    color: #24292e;
+}
+
+    .markdown_main h1 {
+        margin-bottom: 5px !important;
+        padding-bottom: 5px !important;
+        font-weight: 500 !important;
+        border-bottom: 1px solid lightgray !important;
+    }
+
+    .markdown_main h2 {
+        margin-bottom: 5px !important;
+        padding-bottom: 5px !important;
+        font-weight: 500 !important;
+        border-bottom: 1px solid lightgray !important;
+    }
+
+    .markdown_main h3 {
+        margin-bottom: 5px !important;
+        padding-bottom: 5px !important;
+        font-weight: 500 !important;
+    }
+
+    .markdown_main h4 {
+        margin-bottom: 5px !important;
+        padding-bottom: 5px !important;
+        font-weight: 500 !important;
+    }
+
+    .markdown_main h5 {
+        margin-bottom: 5px !important;
+        padding-bottom: 5px !important;
+        font-weight: 500 !important;
+    }
+
+    .markdown_main h6 {
+        margin-bottom: 5px !important;
+        padding-bottom: 5px !important;
+        font-weight: 500 !important;
+    }
+
+    .markdown_main a {
+        -webkit-text-decoration-line: none !important;
+        text-decoration-line: none !important;
+        color: #1888e2 !important;
+    }
+
+    .markdown_main ul {
+        margin: 0px !important;
+    }
+
+    .markdown_main ol {
+        margin: 0px !important;
+    }
+
+    .markdown_main li + li {
+        margin-top: .25em !important;
+    }
+
+    .markdown_main img {
+        width: 100% !important;
+    }
+
+.notes {
+    padding-top: 15px;
+}
+
+.note_button {
+    background: #F5F5F5;
+    -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+    margin-top: 25px;
+    color: black;
+    font-size: 1.1rem;
+}
+
+    .note_button i {
+        color: #466EAB;
+    }
+
+    .note_button:hover {
+        -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+    }
+
 @media only screen and (max-width: 1140px) {
+    .navigation {
+        display: none;
+    }
+
+    .navbar {
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+    }
+
+    .main {
+        width: 100vw;
+        height: calc(100vh - 87px);
+    }
+
     .login .main_container {
         display: inline-block;
         width: initial;
@@ -186,6 +329,22 @@ a {
 
     .login .header_logo {
         display: block;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .navbar ul {
+        background: white !important;
+        margin-bottom: 0px !important;
+    }
+
+    .navbar li {
+        padding-left: 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .navbar a {
+        color: black !important;
     }
 }
 
