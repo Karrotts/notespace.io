@@ -49,9 +49,15 @@ namespace Notespace.Web.Controllers
                 .Include(n => n.Notebook)
                 .Include(n => n.User)
                 .FirstOrDefaultAsync(m => m.NoteID == id);
+
             if (note == null)
             {
                 return NotFound();
+            }
+
+            if (!note.IsPublic && note.UserID != _userManager.GetUserId(User))
+            {
+                return View("Restricted");
             }
 
             return View(note);
@@ -100,6 +106,12 @@ namespace Notespace.Web.Controllers
             {
                 return NotFound();
             }
+
+            if (note.UserID != _userManager.GetUserId(User))
+            {
+                return View("Restricted");
+            }
+
             ViewData["NotebookID"] = new SelectList(_context.Notebooks, "NotebookID", "NotebookID", note.NotebookID);
             ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", note.UserID);
             return View(note);
@@ -160,9 +172,15 @@ namespace Notespace.Web.Controllers
                 .Include(n => n.Notebook)
                 .Include(n => n.User)
                 .FirstOrDefaultAsync(m => m.NoteID == id);
+
             if (note == null)
             {
                 return NotFound();
+            }
+
+            if (note.UserID != _userManager.GetUserId(User))
+            {
+                return View("Restricted");
             }
 
             return View(note);
@@ -174,6 +192,10 @@ namespace Notespace.Web.Controllers
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
             var note = await _context.Notes.FindAsync(id);
+            if (note.UserID != _userManager.GetUserId(User))
+            {
+                return View("Restricted");
+            }
             _context.Notes.Remove(note);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
