@@ -1,2 +1,17 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿// Allow Tabs in TextAreas
+// Solution from: https://stackoverflow.com/questions/6637341/use-tab-to-indent-in-textarea
+document.getElementById('Text').addEventListener('keydown', function (e) {
+    if (e.key == 'Tab') {
+        e.preventDefault();
+        var start = this.selectionStart;
+        var end = this.selectionEnd;
+
+        // set textarea value to: text before caret + tab + text after caret
+        this.value = this.value.substring(0, start) +
+            "\t" + this.value.substring(end);
+
+        // put caret at right position again
+        this.selectionStart =
+            this.selectionEnd = start + 1;
+    }
+});

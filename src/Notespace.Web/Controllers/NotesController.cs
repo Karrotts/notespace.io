@@ -15,15 +15,15 @@ namespace Notespace.Web.Controllers
     public class NotesController : Controller
     {
         private readonly ApplicationIdentityContext _context;
-        private UserManager<ApplicationUser> userManager;
-        private SignInManager<ApplicationUser> signInManager;
+        private UserManager<ApplicationUser> _userManager;
+        private SignInManager<ApplicationUser> _signInManager;
 
         public NotesController(ApplicationIdentityContext context, 
                UserManager<ApplicationUser> userMgr,
                SignInManager<ApplicationUser> signInMgr)
         {
-            userManager = userMgr;
-            signInManager = signInMgr;
+            _userManager = userMgr;
+            _signInManager = signInMgr;
             _context = context;
         }
 
@@ -32,7 +32,7 @@ namespace Notespace.Web.Controllers
         {
             var applicationIdentityContext = _context.Notes.Include(n => n.Notebook).Include(n => n.User);
             return View(await applicationIdentityContext
-                              .Where(n => n.UserID == userManager.GetUserId(User))
+                              .Where(n => n.UserID == _userManager.GetUserId(User))
                               .OrderByDescending(n => n.LastModified)
                               .ToListAsync());
         }
@@ -71,7 +71,7 @@ namespace Notespace.Web.Controllers
         public async Task<IActionResult> Create([Bind("NoteID,Title,IsPublic,Text")] Note note)
         {
             note.LastModified = DateTime.Now;
-            note.UserID = userManager.GetUserId(User);
+            note.UserID = _userManager.GetUserId(User);
             note.NotebookID = null;
             note.HTML = Markdown.Convert(note.Text.Split('\n').ToList());
             note.Order = 0;
@@ -118,7 +118,7 @@ namespace Notespace.Web.Controllers
             }
 
             note.LastModified = DateTime.Now;
-            note.UserID = userManager.GetUserId(User);
+            note.UserID = _userManager.GetUserId(User);
             note.NotebookID = null;
             note.HTML = Markdown.Convert(note.Text.Split('\n').ToList());
             note.Order = 0;
