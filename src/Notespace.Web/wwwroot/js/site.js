@@ -15,3 +15,15 @@ document.getElementById('Text').addEventListener('keydown', function (e) {
             this.selectionEnd = start + 1;
     }
 });
+
+var noteToggle = false;
+
+function NoteMenuToggle() {
+    if (!noteToggle) {
+        document.getElementById("new_note").classList.remove("hide");
+        noteToggle = !noteToggle;
+    } else {
+        document.getElementById("new_note").classList.add("hide");
+        noteToggle = !noteToggle;
+    }
+}

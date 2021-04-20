@@ -64,33 +64,55 @@ namespace Notespace.Web.Controllers
         }
 
         // GET: Notes/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+        //public IActionResult Create()
+        //{
+        //    return View();
+        //}
 
         // POST: Notes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create([Bind("NoteID,Title,IsPublic,Text")] Note note)
+        //{
+        //    note.LastModified = DateTime.Now;
+        //    note.UserID = _userManager.GetUserId(User);
+        //    note.NotebookID = null;
+        //    note.HTML = Markdown.Convert(note.Text.Split('\n').ToList());
+        //    note.Order = 0;
+        //
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Add(note);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //
+        //    ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", note.UserID);
+        //    return View(note);
+        //}
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NoteID,Title,IsPublic,Text")] Note note)
+        public async Task<IActionResult> CreateAsync()
         {
+            var name = Request.Form["name"];
+            bool ispublic = Request.Form["public"] == "on";
+            
+            Note note = new Note();
+            note.Title = name;
+            note.IsPublic = ispublic;
             note.LastModified = DateTime.Now;
             note.UserID = _userManager.GetUserId(User);
             note.NotebookID = null;
-            note.HTML = Markdown.Convert(note.Text.Split('\n').ToList());
+            note.Text = "";
+            note.HTML = "";
             note.Order = 0;
 
-            if (ModelState.IsValid)
-            {
-                _context.Add(note);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+            _context.Add(note);
+            await _context.SaveChangesAsync();
 
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", note.UserID);
-            return View(note);
+            return RedirectToAction("Details", new { Id = note.NoteID });
         }
 
         // GET: Notes/Edit/5

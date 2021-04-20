@@ -300,6 +300,70 @@ a {
           box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
 }
 
+.new_note_menu {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+
+.new_note_menu .menu_background {
+  background: white;
+  max-width: 500px;
+  width: 100vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 30px;
+  -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.new_note_menu .menu_exit_container {
+  position: absolute;
+  right: 7%;
+  top: 7%;
+  font-size: 25px;
+  color: lightgrey;
+  cursor: pointer;
+}
+
+.new_note_menu .menu_lable {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.new_note_menu .menu_input {
+  width: 100%;
+  padding: 10px;
+}
+
+.new_note_menu .menu_checkbox {
+  margin-top: 10px;
+}
+
+.new_note_menu .menu_submit {
+  background: #466EAB;
+  color: white;
+  border: 0px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+  width: 100%;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.hide {
+  display: none;
+}
+
 @media only screen and (max-width: 1140px) {
   .navigation {
     display: none;
