@@ -155,10 +155,3 @@ Note taking is an important aspect of learning any kind of material, it allows y
 |15|5.1.2|On form load, it should populate on/off switch for public/private, on submit result, accessibility should be modified.|not tested| |
 |16|5.1.3|On form submit result, if changes were made to data, update data in database.|not tested| |
 
-## Task List
-[Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
-04/11/21 - Created user interface to connect with my database and markdown converter. Users are now able to login to the site and create notes. Further UI improvements are needed on the create page.
-![Entry Page](/doc/prototype/images/entry.JPG)
-![View Page](/doc/prototype/images/view.JPG)
-![Details Page](/doc/prototype/images/details.JPG)
- 
