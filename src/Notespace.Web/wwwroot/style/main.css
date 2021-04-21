@@ -216,50 +216,57 @@ a {
     -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
     color: #24292e;
+    font-size: 1.1em;
+    line-height: 1.7em;
 }
 
     .markdown_main h1 {
         margin-bottom: 5px !important;
         padding-bottom: 5px !important;
-        font-weight: 500 !important;
+        font-weight: 300 !important;
         border-bottom: 1px solid lightgray !important;
     }
 
     .markdown_main h2 {
-        margin-bottom: 5px !important;
+        margin-bottom: 10px !important;
         padding-bottom: 5px !important;
-        font-weight: 500 !important;
+        font-weight: 300 !important;
+        margin-top: 20px;
         border-bottom: 1px solid lightgray !important;
     }
 
     .markdown_main h3 {
         margin-bottom: 5px !important;
         padding-bottom: 5px !important;
-        font-weight: 500 !important;
+        font-weight: 300 !important;
     }
 
     .markdown_main h4 {
         margin-bottom: 5px !important;
         padding-bottom: 5px !important;
-        font-weight: 500 !important;
+        font-weight: 300 !important;
     }
 
     .markdown_main h5 {
         margin-bottom: 5px !important;
         padding-bottom: 5px !important;
-        font-weight: 500 !important;
+        font-weight: 300 !important;
     }
 
     .markdown_main h6 {
         margin-bottom: 5px !important;
         padding-bottom: 5px !important;
-        font-weight: 500 !important;
+        font-weight: 300 !important;
     }
 
     .markdown_main a {
         -webkit-text-decoration-line: none !important;
         text-decoration-line: none !important;
         color: #1888e2 !important;
+    }
+
+    .markdown_main p {
+        margin-bottom: 10px;
     }
 
     .markdown_main ul {
