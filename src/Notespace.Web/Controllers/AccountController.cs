@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Notespace.Web.Models.ViewModels;
 using Notespace.Web.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Notespace.Web.Controllers
 {
@@ -54,6 +56,7 @@ namespace Notespace.Web.Controllers
                 }
             }
             ModelState.AddModelError("", "Invalid name or password");
+            ViewBag.Error = "Invalid username or password";
             return View(loginModel);
         }
 
@@ -61,7 +64,6 @@ namespace Notespace.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterModel registerModel)
         {
-            if (registerModel.Password != registerModel.ConfirmPassword) return View(new RegisterModel { ErrorMessage = "Passwords do not match!" });
             if (ModelState.IsValid)
             {
                 ApplicationUser user = new ApplicationUser { UserName = registerModel.Username, Email = registerModel.Email };
@@ -75,7 +77,22 @@ namespace Notespace.Web.Controllers
                         return Redirect(registerModel?.ReturnUrl ?? "/");
                     }
                 }
+                
+                foreach (var error in result.Errors)
+                {
+                    return View(new RegisterModel { ErrorMessage = error.Description });
+                }
+
             }
+
+            foreach (var modelState in ViewData.ModelState.Values)
+            {
+                foreach (var error in modelState.Errors)
+                {
+                    return View(new RegisterModel { ErrorMessage = error.ErrorMessage });
+                }
+            }
+
             return View(new RegisterModel { ErrorMessage = "Unable to create user!" });
         }
 

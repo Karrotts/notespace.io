@@ -31,7 +31,7 @@
                     <h1 class="title">Login</h1>
                     <p style="margin-top: 15px; margin-bottom: 5px;">Don't have an account? <a asp-controller="account" asp-action="register">Sign Up</a></p>
                     <form asp-action="Login" asp-controller="Account" method="post">
-                        <label id="error" class="error_text"></label><br>
+                        <label id="error" class="error_text">@ViewBag.Error</label><br>
                         <label asp-for="Name">Username</label><br>
                         <input asp-for="Name" type="text" placeholder="username" required><br>
                         <label asp-for="Password">Password</label><br>
