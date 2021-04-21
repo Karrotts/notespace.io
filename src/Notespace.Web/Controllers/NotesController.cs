@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Notespace.Web.Data;
 using Notespace.Web.Models;
@@ -27,17 +28,21 @@ namespace Notespace.Web.Controllers
             _context = context;
         }
 
+        #region HTTP GET
+
         // GET: Notes
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var applicationIdentityContext = _context.Notes.Include(n => n.Notebook).Include(n => n.User);
             return View(await applicationIdentityContext
-                              .Where(n => n.UserID == _userManager.GetUserId(User))
-                              .OrderByDescending(n => n.LastModified)
-                              .ToListAsync());
+                                .Where(n => n.UserID == _userManager.GetUserId(User))
+                                .OrderByDescending(n => n.LastModified)
+                                .ToListAsync());
         }
 
         // GET: Notes/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null)
@@ -63,42 +68,72 @@ namespace Notespace.Web.Controllers
             return View(note);
         }
 
-        // GET: Notes/Create
-        //public IActionResult Create()
-        //{
-        //    return View();
-        //}
+        // GET: Notes/Edit/5
+        [Authorize]
+        public async Task<IActionResult> Edit(long? id)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (id == null)
+                {
+                    return NotFound();
+                }
 
-        // POST: Notes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([Bind("NoteID,Title,IsPublic,Text")] Note note)
-        //{
-        //    note.LastModified = DateTime.Now;
-        //    note.UserID = _userManager.GetUserId(User);
-        //    note.NotebookID = null;
-        //    note.HTML = Markdown.Convert(note.Text.Split('\n').ToList());
-        //    note.Order = 0;
-        //
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.Add(note);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //
-        //    ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", note.UserID);
-        //    return View(note);
-        //}
+                var note = await _context.Notes.FindAsync(id);
+                if (note == null)
+                {
+                    return NotFound();
+                }
+
+                if (note.UserID != _userManager.GetUserId(User))
+                {
+                    return View("Restricted");
+                }
+
+                ViewData["NotebookID"] = new SelectList(_context.Notebooks, "NotebookID", "NotebookID", note.NotebookID);
+                ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", note.UserID);
+                return View(note);
+            }
+            return Redirect("./account/login");
+        }
+
+        // GET: Notes/Delete/5
+        [Authorize]
+        public async Task<IActionResult> Delete(long? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var note = await _context.Notes
+                .Include(n => n.Notebook)
+                .Include(n => n.User)
+                .FirstOrDefaultAsync(m => m.NoteID == id);
+
+            if (note == null)
+            {
+                return NotFound();
+            }
+
+            if (note.UserID != _userManager.GetUserId(User))
+            {
+                return View("Restricted");
+            }
+
+            return View(note);
+        }
+
+        #endregion HTTP GET
+
+        #region HTTP POST
 
         [HttpPost]
         public async Task<IActionResult> CreateAsync()
         {
             var name = Request.Form["name"];
             bool ispublic = Request.Form["public"] == "on";
-            
+
             Note note = new Note();
             note.Title = name;
             note.IsPublic = ispublic;
@@ -115,33 +150,7 @@ namespace Notespace.Web.Controllers
             return RedirectToAction("Details", new { Id = note.NoteID });
         }
 
-        // GET: Notes/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var note = await _context.Notes.FindAsync(id);
-            if (note == null)
-            {
-                return NotFound();
-            }
-
-            if (note.UserID != _userManager.GetUserId(User))
-            {
-                return View("Restricted");
-            }
-
-            ViewData["NotebookID"] = new SelectList(_context.Notebooks, "NotebookID", "NotebookID", note.NotebookID);
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", note.UserID);
-            return View(note);
-        }
-
         // POST: Notes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long id, [Bind("NoteID,Title,IsPublic,Text")] Note note)
@@ -182,32 +191,6 @@ namespace Notespace.Web.Controllers
             return View(note);
         }
 
-        // GET: Notes/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var note = await _context.Notes
-                .Include(n => n.Notebook)
-                .Include(n => n.User)
-                .FirstOrDefaultAsync(m => m.NoteID == id);
-
-            if (note == null)
-            {
-                return NotFound();
-            }
-
-            if (note.UserID != _userManager.GetUserId(User))
-            {
-                return View("Restricted");
-            }
-
-            return View(note);
-        }
-
         // POST: Notes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -223,9 +206,15 @@ namespace Notespace.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        #endregion
+
+        #region HELPER METHODS
+
         private bool NoteExists(long id)
         {
             return _context.Notes.Any(e => e.NoteID == id);
         }
+
+        #endregion
     }
 }
