@@ -15,7 +15,6 @@
 5. [Requirements And Test Methods](#requirements-and-test-methods)
 6. [Tests](#tests)
 7. [Prototype](https://github.com/Karrotts/notespace.io/tree/main/doc/prototype)
-8. [Task List](#task-list)
 
 ## Concept
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
