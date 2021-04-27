@@ -55,6 +55,8 @@ namespace Notespace.Web.Controllers
                 .Include(n => n.User)
                 .FirstOrDefaultAsync(m => m.NoteID == id);
 
+            var creator = await _context.Users.FirstOrDefaultAsync(n => n.Id == note.UserID);
+
             if (note == null)
             {
                 return NotFound();
@@ -65,6 +67,8 @@ namespace Notespace.Web.Controllers
                 return View("Restricted");
             }
 
+            ViewData["UserID"] = _userManager.GetUserId(User);
+            ViewData["Name"] = creator.UserName;
             return View(note);
         }
 
