@@ -58,7 +58,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link @(ViewContext.RouteData.Values["controller"].ToString().Equals("Notebooks") ? "active" : "text-white")">
+                        <a asp-controller="Notebooks" asp-action="Index" class="nav-link @(ViewContext.RouteData.Values["controller"].ToString().Equals("Notebooks") ? "active" : "text-white")">
                             <i class="fas fa-book"></i> Notebooks
                         </a>
                     </li>
@@ -69,7 +69,10 @@
                     </li>
                 </ul>
                 <hr>
-                <a class="btn" asp-controller="Account" asp-action="Logout">LOGOUT  <i class="fas fa-sign-out-alt"></i></a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a class="btn" asp-controller="Account" asp-action="Logout">LOGOUT  <i class="fas fa-sign-out-alt"></i></a>
+                }
             </div>
             <div class="p-5 flex-column main" style="height: 95vh">
                 @RenderBody()
