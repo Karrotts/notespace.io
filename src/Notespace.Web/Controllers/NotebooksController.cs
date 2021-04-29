@@ -55,7 +55,42 @@ namespace Notespace.Web.Controllers
             return View(notebook);
         }
 
+        public async Task<IActionResult> Edit(long? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var notebook = await _context.Notebooks.FindAsync(id);
+            if (notebook == null)
+            {
+                return NotFound();
+            }
+            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", notebook.UserID);
+            return View(notebook);
+        }
+
+        public async Task<IActionResult> Delete(long? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var notebook = await _context.Notebooks
+                .Include(n => n.User)
+                .FirstOrDefaultAsync(m => m.NotebookID == id);
+            if (notebook == null)
+            {
+                return NotFound();
+            }
+
+            return View(notebook);
+        }
+
         #endregion
+
         #region HTTP POST
 
         [HttpPost]
@@ -88,28 +123,6 @@ namespace Notespace.Web.Controllers
             return Redirect("/notebooks");
         }
 
-        #endregion
-
-        // GET: Notebooks/Edit/5
-        public async Task<IActionResult> Edit(long? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var notebook = await _context.Notebooks.FindAsync(id);
-            if (notebook == null)
-            {
-                return NotFound();
-            }
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", notebook.UserID);
-            return View(notebook);
-        }
-
-        // POST: Notebooks/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long id, [Bind("NotebookID,UserID,Title,IsPublic,Color,LastModified")] Notebook notebook)
@@ -143,24 +156,6 @@ namespace Notespace.Web.Controllers
             return View(notebook);
         }
 
-        // GET: Notebooks/Delete/5
-        public async Task<IActionResult> Delete(long? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var notebook = await _context.Notebooks
-                .Include(n => n.User)
-                .FirstOrDefaultAsync(m => m.NotebookID == id);
-            if (notebook == null)
-            {
-                return NotFound();
-            }
-
-            return View(notebook);
-        }
 
         // POST: Notebooks/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -173,9 +168,15 @@ namespace Notespace.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        #endregion
+
+        #region HELPER METHODS
+
         private bool NotebookExists(long id)
         {
             return _context.Notebooks.Any(e => e.NotebookID == id);
         }
+
+        #endregion
     }
 }
