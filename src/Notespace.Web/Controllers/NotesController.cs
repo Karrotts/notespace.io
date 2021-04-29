@@ -36,7 +36,7 @@ namespace Notespace.Web.Controllers
         {
             var applicationIdentityContext = _context.Notes.Include(n => n.Notebook).Include(n => n.User);
             return View(await applicationIdentityContext
-                                .Where(n => n.UserID == _userManager.GetUserId(User))
+                                .Where(n => n.UserID == _userManager.GetUserId(User) && n.Notebook == null)
                                 .OrderByDescending(n => n.LastModified)
                                 .ToListAsync());
         }

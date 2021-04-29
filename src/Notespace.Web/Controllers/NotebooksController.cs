@@ -26,7 +26,8 @@ namespace Notespace.Web.Controllers
             _context = context;
         }
 
-        // GET: Notebooks
+        #region HTTP GET
+
         public async Task<IActionResult> Index()
         {
             var applicationIdentityContext = _context.Notebooks.Include(n => n.User);
@@ -36,7 +37,6 @@ namespace Notespace.Web.Controllers
                                 .ToListAsync());
         }
 
-        // GET: Notebooks/Details/5
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null)
@@ -55,29 +55,40 @@ namespace Notespace.Web.Controllers
             return View(notebook);
         }
 
-        // GET: Notebooks/Create
-        public IActionResult Create()
+        #endregion
+        #region HTTP POST
+
+        [HttpPost]
+        public async Task<IActionResult> CreateAsync()
         {
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id");
-            return View();
+            var name = Request.Form["name"];
+            bool ispublic = Request.Form["public"] == "on";
+            var color = Request.Form["color"];
+
+            Notebook notebook = new Notebook();
+            notebook.Title = name;
+            notebook.UserID = _userManager.GetUserId(User);
+            notebook.IsPublic = ispublic;
+            notebook.Color = byte.Parse(color);
+            notebook.LastModified = DateTime.Now;
+            _context.Add(notebook);
+
+            Note note = new Note();
+            note.UserID = notebook.UserID;
+            note.Notebook = notebook;
+            note.LastModified = DateTime.Now;
+            note.IsPublic = ispublic;
+            note.Order = 0;
+            note.Text = "";
+            note.HTML = "";
+            note.Title = "Page 1";
+            _context.Add(note);
+            await _context.SaveChangesAsync();
+
+            return Redirect("/notebooks");
         }
 
-        // POST: Notebooks/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NotebookID,UserID,Title,IsPublic,Color,LastModified")] Notebook notebook)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(notebook);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", notebook.UserID);
-            return View(notebook);
-        }
+        #endregion
 
         // GET: Notebooks/Edit/5
         public async Task<IActionResult> Edit(long? id)
