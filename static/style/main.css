@@ -315,6 +315,13 @@ a {
   z-index: 1;
   left: 0;
   top: 0;
+  /* Hide the browser's default radio button */
+  /* Create a custom radio button */
+  /* On mouse-over, add a grey background color */
+  /* When the radio button is checked, add a blue background */
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  /* Show the indicator (dot/circle) when checked */
+  /* Style the indicator (dot/circle) */
 }
 
 .new_note_menu .menu_background {
@@ -343,6 +350,7 @@ a {
 .new_note_menu .menu_lable {
   margin-top: 15px;
   margin-bottom: 5px;
+  display: block;
 }
 
 .new_note_menu .menu_input {
@@ -365,6 +373,79 @@ a {
   margin-top: 25px;
   margin-bottom: 10px;
   padding: 10px;
+}
+
+.new_note_menu .container {
+  display: inline;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.new_note_menu .container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.new_note_menu .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+.new_note_menu .container:hover input ~ .checkmark {
+  -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+}
+
+.new_note_menu .container input:checked ~ .checkmark {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.new_note_menu .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.new_note_menu .container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.new_note_menu .container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.new_note_menu .checkmark-red {
+  background: #D48B8B;
+}
+
+.new_note_menu .checkmark-blue {
+  background: #8BA8D4;
+}
+
+.new_note_menu .checkmark-green {
+  background: #8BD48D;
+}
+
+.new_note_menu .checkmark-yellow {
+  background: #E6E66F;
 }
 
 .hide {

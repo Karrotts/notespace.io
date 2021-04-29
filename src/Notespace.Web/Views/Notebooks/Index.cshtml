@@ -8,11 +8,28 @@
         <div class="menu_exit_container" onclick="NoteMenuToggle()">
             <i class="fas fa-times"></i>
         </div>
-        <h1 class="display-6 menu_header">New Note</h1>
+        <h1 class="display-6 menu_header">New Notebook</h1>
         <form asp-action="Create">
-            <label class="menu_lable">Note Name</label>
+            <label class="menu_lable">Notebook Name</label>
             <input name="name" class="menu_input" type="text"><br>
             <input name="public" class="menu_checkbox" type="checkbox">  <label>Public </label>
+            <label class="menu_lable" style="margin-top: 10px;">Notebook Color</label>
+            <label class="container">
+                <input type="radio" checked="checked" name="radio">
+                <span class="checkmark checkmark-red"></span>
+            </label>
+            <label class="container">
+                <input type="radio" name="radio">
+                <span class="checkmark checkmark-yellow"></span>
+            </label>
+            <label class="container">
+                <input type="radio" name="radio">
+                <span class="checkmark checkmark-green"></span>
+            </label>
+            <label class="container">
+                <input type="radio" name="radio">
+                <span class="checkmark checkmark-blue"></span>
+            </label>
             <button class="menu_submit" type="submit">Submit</button>
         </form>
     </div>
