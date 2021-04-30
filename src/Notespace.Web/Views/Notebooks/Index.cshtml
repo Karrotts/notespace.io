@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<Notespace.Web.Models.Notebook>
-
+@{
+    string[] color = { "icon-red", "icon-yellow", "icon-green", "icon-blue" };
+}
 @{
     ViewData["Title"] = "Index";
 }
@@ -42,7 +44,7 @@
     @foreach (var item in Model)
     {
         <a asp-action="Details" asp-route-id="@item.NotebookID" class="d-flex p-3 note_button">
-            <span><i class="fas fa-book"></i> @item.Title</span>
+            <span><i class="fas fa-book @color[item.Color - 1]"></i> @item.Title</span>
             <span style="margin-left: auto;">Last Modified: @item.LastModified</span>
         </a>
     }

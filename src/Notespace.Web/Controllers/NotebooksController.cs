@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ConvertMarkdown;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -46,13 +47,19 @@ namespace Notespace.Web.Controllers
 
             var notebook = await _context.Notebooks
                 .Include(n => n.User)
+                .Include(n => n.Notes)
                 .FirstOrDefaultAsync(m => m.NotebookID == id);
+
             if (notebook == null)
             {
                 return NotFound();
             }
 
-            return View(notebook);
+            ViewData["Name"] = notebook.Title;
+            ViewData["Pages"] = notebook.Notes.Count;
+            ViewData["Color"] = notebook.Color;
+
+            return View(notebook.Notes.FirstOrDefault(n => n.Order == 0));
         }
 
         public async Task<IActionResult> Edit(long? id)
@@ -69,6 +76,22 @@ namespace Notespace.Web.Controllers
             }
             ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", notebook.UserID);
             return View(notebook);
+        }
+
+        public async Task<IActionResult> EditPage(long? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var note = await _context.Notes.FindAsync(id);
+            if (note == null)
+            {
+                return NotFound();
+            }
+
+            return View(note);
         }
 
         public async Task<IActionResult> Delete(long? id)
@@ -154,6 +177,47 @@ namespace Notespace.Web.Controllers
             }
             ViewData["UserID"] = new SelectList(_context.Users, "Id", "Id", notebook.UserID);
             return View(notebook);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditPage(long id, [Bind("NoteID,NotebookID,Order,IsPublic,Title,Text")] Note note)
+        {
+
+            if (id != note.NoteID)
+            {
+                return NotFound();
+            }
+
+            note.LastModified = DateTime.Now;
+            note.Text = note.Text == null ? "" : note.Text;
+            note.HTML = Markdown.Convert(note.Text.Split('\n').ToList());
+
+            var notebook = _context.Notebooks.FirstOrDefault(n => n.NotebookID == note.NotebookID);
+            notebook.LastModified = note.LastModified;
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(note);
+                    _context.Update(notebook);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!_context.Notes.Any(e => e.NoteID == id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction("Details", new { id = note.NotebookID });
+            }
+            return View(note);
         }
 
 
