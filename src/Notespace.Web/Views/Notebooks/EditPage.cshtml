@@ -21,7 +21,7 @@
             </div>
             <div class="form-group" style="margin-top: 40px;">
                 <input type="submit" value="Save" class="btn btn-primary" />
-                <a asp-action="Details" asp-route-id="@Model.NoteID">Back to List</a>
+                <a asp-action="Details" asp-route-id="@Model.NotebookID" asp-route-pageId="@Model.Order">Back to Notebook</a>
             </div>
         </form>
     </div>
