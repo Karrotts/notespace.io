@@ -38,7 +38,7 @@ namespace Notespace.Web.Controllers
                                 .ToListAsync());
         }
 
-        public async Task<IActionResult> Details(long? id)
+        public async Task<IActionResult> Details(long? id, long? pageId)
         {
             if (id == null)
             {
@@ -59,7 +59,7 @@ namespace Notespace.Web.Controllers
             ViewData["Pages"] = notebook.Notes.Count;
             ViewData["Color"] = notebook.Color;
 
-            return View(notebook.Notes.FirstOrDefault(n => n.Order == 0));
+            return View(notebook.Notes.FirstOrDefault(n => n.Order == pageId));
         }
 
         public async Task<IActionResult> Edit(long? id)
@@ -147,6 +147,41 @@ namespace Notespace.Web.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> CreatePageAsync()
+        {
+            var name = Request.Form["name"];
+            var notebookID = Request.Form["NotebookID"];
+            var Order = Request.Form["Order"];
+
+            Note note = new Note();
+            note.Title = name;
+            note.NotebookID = long.Parse(notebookID);
+            note.Text = "";
+            note.HTML = "";
+            note.IsPublic = false;
+            note.LastModified = DateTime.Now;
+            note.UserID = _userManager.GetUserId(User);
+            note.Order = int.Parse(Order) + 1;
+
+            var notes = await _context.Notes.Where(n => n.NotebookID == note.NotebookID).ToListAsync();
+
+            int addNumber = note.Order;
+            foreach (Note n in notes)
+            {
+                if (n.Order >= addNumber)
+                {
+                    n.Order++;
+                    _context.Notes.Update(n);
+                }
+            }
+
+            _context.Add(note);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Details", new { id = note.NotebookID, pageId = note.Order });
+        }
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long id, [Bind("NotebookID,UserID,Title,IsPublic,Color,LastModified")] Notebook notebook)
         {
@@ -189,6 +224,7 @@ namespace Notespace.Web.Controllers
                 return NotFound();
             }
 
+            note.UserID = _userManager.GetUserId(User);
             note.LastModified = DateTime.Now;
             note.Text = note.Text == null ? "" : note.Text;
             note.HTML = Markdown.Convert(note.Text.Split('\n').ToList());
@@ -215,9 +251,36 @@ namespace Notespace.Web.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("Details", new { id = note.NotebookID });
+                return RedirectToAction("Details", new { id = note.NotebookID, pageId = note.Order });
             }
             return View(note);
+        }
+
+        public async Task<IActionResult> DeletePage(long id)
+        {
+            var note = await _context.Notes.FindAsync(id);
+            var notebook = await _context.Notebooks.FindAsync(note.NotebookID);
+            var notes = await _context.Notes.Where(n => n.NotebookID == notebook.NotebookID).ToListAsync();
+            if (notebook.Notes.Count > 1)
+            {
+                int removeNumber = note.Order;
+                foreach(Note n in notes)
+                {
+                    if (n.Order > removeNumber)
+                    {
+                        n.Order--;
+                        _context.Notes.Update(n);
+                    }
+                }
+                _context.Notes.Remove(note);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Details", new { id = note.NotebookID, pageId = note.Order - 1 < 0 ? 0 : note.Order - 1});
+            }
+
+            _context.Notes.Remove(note);
+            _context.Notebooks.Remove(notebook);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
 
