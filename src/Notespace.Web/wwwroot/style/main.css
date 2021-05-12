@@ -262,7 +262,13 @@ a {
     .markdown_main a {
         -webkit-text-decoration-line: none !important;
         text-decoration-line: none !important;
-        color: #1888e2 !important;
+        color: #3b9c50 !important;
+    }
+
+    .markdown_main blockquote {
+        background: #F5F5F5;
+        border-left: 4px solid lightgray;
+        padding-left: 5px;
     }
 
     .markdown_main p {
@@ -283,6 +289,12 @@ a {
 
     .markdown_main img {
         width: 100% !important;
+    }
+
+    .markdown_main code {
+        background: #F5F5F5;
+        padding: 5px;
+        color: #466EAB;
     }
 
 .notes {
