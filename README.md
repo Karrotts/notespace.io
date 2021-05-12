@@ -1,7 +1,9 @@
 <p align="center">
   <img src="https://github.com/Karrotts/notespace.io/blob/main/doc/wireframe/notespace%20logo.JPG?raw=true">
 </p>
-<p align="center">Markdown note taking application</p>
+<p align="center">Markdown note taking application <br>
+<a align="center" href="https://notespace.io">Check out the site!</a>
+</p>
 
 ## Table Of Contents
 1. [Concept](#concept)
