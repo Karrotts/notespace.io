@@ -45,6 +45,8 @@ namespace Notespace.Web.Controllers
                 return NotFound();
             }
 
+
+
             var notebook = await _context.Notebooks
                 .Include(n => n.User)
                 .Include(n => n.Notes)
