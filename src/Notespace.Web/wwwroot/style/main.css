@@ -288,7 +288,7 @@ a {
     }
 
     .markdown_main img {
-        width: 100% !important;
+        max-width: 100% !important;
     }
 
     .markdown_main code {
