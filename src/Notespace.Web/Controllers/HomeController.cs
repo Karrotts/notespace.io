@@ -7,16 +7,36 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Notespace.Web.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Notespace.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly ApplicationIdentityContext _context;
+
+        public HomeController(ApplicationIdentityContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<IActionResult> Index()
         {
             if(User.Identity.IsAuthenticated)
             {
-                return View();
+                var notebooks = await _context.Notebooks
+                    .Include(n => n.User)
+                    .Where(m => m.IsPublic)
+                    .ToListAsync();
+
+                var notes = await _context.Notes
+                    .Include(n => n.User)
+                    .Where(m => m.IsPublic && m.NotebookID == null)
+                    .ToListAsync();
+
+                PublicItems pi = new PublicItems { PublicNotebooks = notebooks, PublicNotes = notes };
+                return View(pi);
             }
             return Redirect("./account/login");
         }

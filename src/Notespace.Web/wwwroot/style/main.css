@@ -199,12 +199,52 @@ a {
     -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
     overflow-y: scroll;
-    max-height: 90% !important;
+    max-height: 95vh !important;
 }
 
     .main .btn {
         margin-right: 10px;
     }
+
+    .main .public .public_container {
+        width: 50%;
+        max-height: 50vh;
+        height: 50vh;
+        overflow-y: scroll;
+        text-align: center;
+        background: #F5F5F5;
+        -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+    }
+
+        .main .public .public_container h2 {
+            padding-bottom: 5px;
+            border-bottom: 1px solid lightgray;
+        }
+
+    .main .public .margin-fix {
+        margin-left: 20px;
+    }
+
+    .main .banner {
+        color: white;
+        padding: 8%;
+        margin-bottom: 25px;
+        -webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
+    }
+
+        .main .banner a {
+            color: white !important;
+        }
+
+        .main .banner h1 {
+            text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .main .banner i {
+            font-size: 2rem;
+        }
 
 .markdown_main {
     margin-top: 20px;
@@ -269,6 +309,8 @@ a {
         background: #F5F5F5;
         border-left: 4px solid lightgray;
         padding-left: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     .markdown_main p {
@@ -308,6 +350,9 @@ a {
     margin-top: 25px;
     color: black;
     font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
     .note_button i {
@@ -478,6 +523,22 @@ a {
 
 .hide {
     display: none;
+}
+
+@media only screen and (max-width: 1450px) {
+    .public {
+        display: inline-block !important;
+        width: 100% !important;
+    }
+
+    .public_container {
+        width: 100% !important;
+        margin-bottom: 25px;
+    }
+
+    .margin-fix {
+        margin-left: 0px !important;
+    }
 }
 
 @media only screen and (max-width: 1140px) {
