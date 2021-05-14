@@ -14,7 +14,7 @@
         <form asp-action="CreatePage">
             <label class="menu_lable">Note Name</label>
             <input type="hidden" value="@Model.Order" name="Order" />
-            <input type ="hidden" value="@Model.NotebookID" name="NotebookID" />
+            <input type="hidden" value="@Model.NotebookID" name="NotebookID" />
             <input name="name" class="menu_input" type="text"><br>
             <button class="menu_submit" type="submit">Submit</button>
         </form>
@@ -30,21 +30,24 @@
         <a asp-action="EditPage" asp-route-id="@Model.NoteID" class="p-3"><i class="fas fa-edit"></i> EDIT</a>
         <a onclick="NoteMenuToggle()" class="p-3" style="cursor: pointer;"><i class="far fa-plus-square"></i> CREATE</a>
     }
-    else
-    {
-        <span style="margin-left: auto;">Created By: @ViewData["Creator"]</span>
-    }
-
-    @if ((int)ViewData["Pages"] > 1 && Model.Order > 0)
-    {
-        <a asp-action="Details" asp-route-id="@Model.NotebookID" asp-route-pageId="@previouspage" class="p-3">&laquo; Previous Page</a>
-    }
-    @if ((int)ViewData["Pages"] > 1 && Model.Order < (int)ViewData["Pages"] - 1)
-    {
-        <a asp-action="Details" asp-route-id="@Model.NotebookID" asp-route-pageId="@nextpage" class="p-3">Next Page &raquo;</a>
-    }
+    <div style="margin-left: auto;">
+        @if ((int)ViewData["Pages"] > 1 && Model.Order > 0)
+        {
+            <a asp-action="Details" asp-route-id="@Model.NotebookID" asp-route-pageId="@previouspage" class="p-3">&laquo; Previous Page</a>
+        }
+        @if ((int)ViewData["Pages"] > 1 && Model.Order < (int)ViewData["Pages"] - 1)
+        {
+            <a asp-action="Details" asp-route-id="@Model.NotebookID" asp-route-pageId="@nextpage" class="p-3">Next Page &raquo;</a>
+        }
+    </div>
 </div>
-<p style="font-weight: 300"><i class="fas fa-book @color[(byte)ViewData["Color"] - 1]"></i> @ViewData["Name"]</p>
+<p style="font-weight: 300">
+    <i class="fas fa-book @color[(byte)ViewData["Color"] - 1]"></i> @ViewData["Name"]
+    @if (Model.UserID != (string)ViewData["UserID"])
+    {
+        <span style="margin-left: auto;">| Created By: @ViewData["Creator"]</span>
+    }
+</p>
 <div class="markdown_main" style="background: white; height: 89%;">
     @Html.Raw(Model.HTML)
 </div>
