@@ -17,7 +17,7 @@
         @foreach (Note n in Model.PublicNotes)
         {
             <a asp-controller="Notes" asp-action="Details" asp-route-id="@n.NoteID" class="d-flex p-3 note_button">
-                <span><i class="far fa-sticky-note"></i> @n.Title</span>
+                <div style="white-space: normal;"><i class="far fa-sticky-note"></i> @n.Title</div>
                 <span style="margin-left: auto;">CREATED BY: @n.User.UserName</span>
             </a>
         }
@@ -27,7 +27,7 @@
         @foreach (Notebook n in Model.PublicNotebooks)
         {
             <a asp-controller="Notebooks" asp-action="Details" asp-route-id="@n.NotebookID" asp-route-pageId="0" class="d-flex p-3 note_button">
-                <span><i class="fas fa-book"></i> @n.Title</span>
+                <div style="white-space: normal;"><i class="fas fa-book"></i> @n.Title</div>
                 <span style="margin-left: auto;">CREATED BY: @n.User.UserName</span>
             </a>
         }

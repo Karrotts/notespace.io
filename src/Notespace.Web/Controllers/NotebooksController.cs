@@ -243,7 +243,10 @@ namespace Notespace.Web.Controllers
             note.UserID = _userManager.GetUserId(User);
             note.LastModified = DateTime.Now;
             note.Text = note.Text == null ? "" : note.Text;
-            note.HTML = Markdown.Convert(note.Text.Split('\n').ToList());
+            note.HTML = Markdown.Convert(note.Text.Split(
+                                    new[] { "\r\n", "\r", "\n" },
+                                    StringSplitOptions.None
+                                    ).ToList<string>());
 
             var notebook = _context.Notebooks.FirstOrDefault(n => n.NotebookID == note.NotebookID);
             notebook.LastModified = note.LastModified;

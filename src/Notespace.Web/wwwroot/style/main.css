@@ -339,6 +339,12 @@ a {
         color: #466EAB;
     }
 
+    .markdown_main pre {
+        background: #F5F5F5;
+        padding: 10px;
+        line-height: 22px;
+    }
+
 .notes {
     padding-top: 15px;
 }
@@ -349,14 +355,22 @@ a {
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.16);
     margin-top: 25px;
     color: black;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    display: inline-block !important;
+    width: 100%;
+    text-align: left;
 }
 
     .note_button i {
         color: #466EAB;
+    }
+
+    .note_button span {
+        font-size: 1rem;
+        color: grey;
     }
 
 .icon-red {
@@ -586,6 +600,10 @@ a {
 
     .navbar a {
         color: black !important;
+    }
+
+    .p-5 {
+        padding: 1rem !important;
     }
 }
 

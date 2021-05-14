@@ -167,7 +167,10 @@ namespace Notespace.Web.Controllers
             note.LastModified = DateTime.Now;
             note.UserID = _userManager.GetUserId(User);
             note.NotebookID = null;
-            note.HTML = Markdown.Convert(note.Text.Split('\n').ToList());
+            note.HTML = Markdown.Convert(note.Text.Split(
+                                    new[] { "\r\n", "\r", "\n" },
+                                    StringSplitOptions.None
+                                    ).ToList<string>());
             note.Order = 0;
 
             if (ModelState.IsValid)

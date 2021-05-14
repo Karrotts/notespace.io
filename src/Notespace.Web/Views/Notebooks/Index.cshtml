@@ -44,7 +44,7 @@
     @foreach (var item in Model)
     {
         <a asp-action="Details" asp-route-id="@item.NotebookID" asp-route-pageId="0" class="d-flex p-3 note_button">
-            <span><i class="fas fa-book @color[item.Color - 1]"></i> @item.Title</span>
+            <div style="white-space: normal;"><i class="fas fa-book @color[item.Color - 1]"></i> @item.Title</div>
             <span style="margin-left: auto;">Last Modified: @item.LastModified</span>
         </a>
     }
