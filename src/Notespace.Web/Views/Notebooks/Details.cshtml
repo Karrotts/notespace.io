@@ -24,9 +24,17 @@
 <a asp-action="Index">&larr; BACK</a>
 <div class="d-flex flex-row flex-wrap">
     <h2 class="display-6">@Model.Title</h2>
-    <a asp-action="DeletePage" asp-route-id="@Model.NoteID" class="p-3" style="margin-left: auto;"><i class="fas fa-trash-alt"></i> DELETE</a>
-    <a asp-action="EditPage" asp-route-id="@Model.NoteID" class="p-3"><i class="fas fa-edit"></i> EDIT</a>
-    <a onclick="NoteMenuToggle()" class="p-3" style="cursor: pointer;"><i class="far fa-plus-square"></i> CREATE</a>
+    @if (Model.UserID == (string)ViewData["UserID"])
+    {
+        <a asp-action="DeletePage" asp-route-id="@Model.NoteID" class="p-3" style="margin-left: auto;"><i class="fas fa-trash-alt"></i> DELETE</a>
+        <a asp-action="EditPage" asp-route-id="@Model.NoteID" class="p-3"><i class="fas fa-edit"></i> EDIT</a>
+        <a onclick="NoteMenuToggle()" class="p-3" style="cursor: pointer;"><i class="far fa-plus-square"></i> CREATE</a>
+    }
+    else
+    {
+        <span style="margin-left: auto;">Created By: @ViewData["Creator"]</span>
+    }
+
     @if ((int)ViewData["Pages"] > 1 && Model.Order > 0)
     {
         <a asp-action="Details" asp-route-id="@Model.NotebookID" asp-route-pageId="@previouspage" class="p-3">&laquo; Previous Page</a>

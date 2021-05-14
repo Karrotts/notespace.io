@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ConvertMarkdown;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -28,7 +29,7 @@ namespace Notespace.Web.Controllers
         }
 
         #region HTTP GET
-
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var applicationIdentityContext = _context.Notebooks.Include(n => n.User);
@@ -38,6 +39,7 @@ namespace Notespace.Web.Controllers
                                 .ToListAsync());
         }
 
+        [Authorize]
         public async Task<IActionResult> Details(long? id, long? pageId)
         {
             if (id == null)
@@ -45,12 +47,17 @@ namespace Notespace.Web.Controllers
                 return NotFound();
             }
 
-
-
             var notebook = await _context.Notebooks
                 .Include(n => n.User)
                 .Include(n => n.Notes)
                 .FirstOrDefaultAsync(m => m.NotebookID == id);
+
+            var creator = await _context.Users.FirstOrDefaultAsync(n => n.Id == notebook.UserID);
+
+            if (!notebook.IsPublic && notebook.UserID != _userManager.GetUserId(User))
+            {
+                return View("Restricted");
+            }
 
             if (notebook == null)
             {
@@ -60,10 +67,13 @@ namespace Notespace.Web.Controllers
             ViewData["Name"] = notebook.Title;
             ViewData["Pages"] = notebook.Notes.Count;
             ViewData["Color"] = notebook.Color;
+            ViewData["Creator"] = creator.UserName;
+            ViewData["UserID"] = _userManager.GetUserId(User);
 
             return View(notebook.Notes.FirstOrDefault(n => n.Order == pageId));
         }
 
+        [Authorize]
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null)
@@ -80,6 +90,7 @@ namespace Notespace.Web.Controllers
             return View(notebook);
         }
 
+        [Authorize]
         public async Task<IActionResult> EditPage(long? id)
         {
             if (id == null)
@@ -96,6 +107,7 @@ namespace Notespace.Web.Controllers
             return View(note);
         }
 
+        [Authorize]
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null)
@@ -119,6 +131,7 @@ namespace Notespace.Web.Controllers
         #region HTTP POST
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateAsync()
         {
             var name = Request.Form["name"];
@@ -149,6 +162,7 @@ namespace Notespace.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreatePageAsync()
         {
             var name = Request.Form["name"];
