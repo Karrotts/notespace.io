@@ -137,22 +137,22 @@ Note taking is an important aspect of learning any kind of material, it allows y
 ## Tests
 [Back To Top](https://github.com/Karrotts/notespace.io#table-of-contents)
 
-|testID|Req|Test proc|current|time|
+|testID|Req|Test proc|current|date|
 |---|---|---|---|---|
-|1|1.1.1|From the textbox, on submit, result should not be empty and contain only alphanumeric characters|not tested| |
-|2|1.1.2|From the textbox, on submit, result should match hashed password in database to the appropriate user|not tested| |
-|3|1.1.3|On form submit, user's last login date will be updated to current date/time|not tested| |
-|4|2.1.1|From the textbox, on submit,result check if the user already exists in the database, render error information if they already exist.|not tested| |
-|5|2.1.2|From the textbox, on submit, result check if the user has entered a password containing at least 8 characters, with at least 1 upper and 1 lowercase character|not tested| |
-|6|2.1.3|From the textbox, on submit, check if the provided email address is in the correct format|not tested| |
-|7|2.1.4|On submit, if information is valid in form, result should be a new user in the database. |not tested| |
-|8|3.1.1|On form load, if user is logged in, display notebook name space or send to login page|not tested| |
-|9|3.1.2|On form submit, result should validate provided data and correct any errors. |not tested| |
-|10|3.1.3|On form submit, result should insert new notebook into database.|not tested| |
-|11|4.1.1|On form load, if user is logged in, display note name space or send to login page|not tested| |
-|12|4.1.2|On form submit, result should validate provided data and correct any errors.|not tested| |
-|13|4.1.3|On form submit, result should insert new note into database.|not tested| |
-|14|5.1.1|On form load, it should populate texbox with current notebook name, on submit result new name updated in database.|not tested| |
-|15|5.1.2|On form load, it should populate on/off switch for public/private, on submit result, accessibility should be modified.|not tested| |
-|16|5.1.3|On form submit result, if changes were made to data, update data in database.|not tested| |
+|1|1.1.1|From the textbox, on submit, result should not be empty and contain only alphanumeric characters|complete| 16 May 2021 |
+|2|1.1.2|From the textbox, on submit, result should match hashed password in database to the appropriate user|complete| 16 May 2021 |
+|3|1.1.3|On form submit, user's last login date will be updated to current date/time|complete| 16 May 2021 |
+|4|2.1.1|From the textbox, on submit,result check if the user already exists in the database, render error information if they already exist.|complete| 16 May 2021 |
+|5|2.1.2|From the textbox, on submit, result check if the user has entered a password containing at least 8 characters, with at least 1 upper and 1 lowercase character|complete|  16 May 2021 |
+|6|2.1.3|From the textbox, on submit, check if the provided email address is in the correct format|complete| 16 May 2021 |
+|7|2.1.4|On submit, if information is valid in form, result should be a new user in the database. |complete| 16 May 2021 |
+|8|3.1.1|On form load, if user is logged in, display notebook name space or send to login page|complete| 16 May 2021 |
+|9|3.1.2|On form submit, result should validate provided data and correct any errors. |complete| 16 May 2021 |
+|10|3.1.3|On form submit, result should insert new notebook into database.|complete| 16 May 2021 |
+|11|4.1.1|On form load, if user is logged in, display note name space or send to login page|complete| 16 May 2021 |
+|12|4.1.2|On form submit, result should validate provided data and correct any errors.|complete| 16 May 2021 |
+|13|4.1.3|On form submit, result should insert new note into database.|complete| 16 May 2021 |
+|14|5.1.1|On form load, it should populate texbox with current notebook name, on submit result new name updated in database.|complete| 16 May 2021 |
+|15|5.1.2|On form load, it should populate on/off switch for public/private, on submit result, accessibility should be modified.|complete| 16 May 2021 |
+|16|5.1.3|On form submit result, if changes were made to data, update data in database.|complete| 16 May 2021 |
 
