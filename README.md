@@ -10,15 +10,21 @@ For my project, I proposed to make an application that utilizes markdown to allo
 
 Note taking is an important aspect of learning any kind of material, it allows you to look back at important topics or sections in which you may struggle with. Taking notes allows you to write material into your own words which helps with retaining the information you have learned. A major problem with most note taking applications is formatting the information in a clear concise manner. This application attempts to solve that by allowing users to quickly transform notes into a well formatted documents using Markdown.
 
-### Wiki
-More information about the project, including requirements, design documents, and more can be found in the **Wiki**.
-
-[Check it out!](https://github.com/Karrotts/notespace.io/wiki)
+This project went through multiple phases and updates during the 18-week period. You can find more information about the project, including requirements, design documents, and testing in the 
+[Wiki!](https://github.com/Karrotts/notespace.io/wiki)
 
 ## Built With
-* [ASP.NET](https://dotnet.microsoft.com/apps/aspnet)
-* [Razor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor)
+* [ASP.NET MVC](https://dotnet.microsoft.com/apps/aspnet)
+* [SASS](https://sass-lang.com/)
 * [Bootstrap](https://getbootstrap.com)
+* [Entity Framework](https://docs.microsoft.com/en-us/ef/)
+* [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+
+### Azure Cloud Technologies Used
+* [Azure SQL](https://azure.microsoft.com/en-us/products/azure-sql/database/)
+* [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/)
+* [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/)
+
 
 ## Roadmap
 See the [open issues](https://github.com/Karrotts/MyHomeApp/issues) for a list of proposed features (and known issues).
