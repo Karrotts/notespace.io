@@ -1,0 +1,21 @@
+﻿@model Notespace.Web.Models.Note
+@{
+        ViewData["Title"] = "Details";
+}
+
+<a asp-action="Index">&larr; BACK</a>
+<div class="d-flex flex-row flex-wrap">
+    <h2 class="display-6">@Model.Title</h2>
+    @if (Model.UserID == (string)ViewData["UserID"])
+    {
+    <a asp-action="Delete" asp-route-id="@Model.NoteID" class="p-3" style="margin-left: auto;"><i class="fas fa-trash-alt"></i> DELETE</a>
+    <a asp-action="Edit" asp-route-id="@Model.NoteID" class="p-3"><i class="fas fa-edit"></i> EDIT</a>
+    }
+    else
+    {
+        <p style="margin-left: auto;">Created By: @ViewData["Name"]</p>
+    }
+</div>
+<div class="markdown_main" style="background: white; height: 89%;">
+    @Html.Raw(Model.HTML)
+</div>

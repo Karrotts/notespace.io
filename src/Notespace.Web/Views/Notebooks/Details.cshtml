@@ -1,0 +1,53 @@
+﻿@model Notespace.Web.Models.Note
+@{
+    string[] color = { "icon-red", "icon-yellow", "icon-green", "icon-blue" };
+    int previouspage = Model.Order - 1;
+    int nextpage = Model.Order + 1;
+}
+
+<div id="new_note" class="new_note_menu hide">
+    <div class="menu_background">
+        <div class="menu_exit_container" onclick="NoteMenuToggle()">
+            <i class="fas fa-times"></i>
+        </div>
+        <h1 class="display-6 menu_header">New Page</h1>
+        <form asp-action="CreatePage">
+            <label class="menu_lable">Page Name</label>
+            <input type="hidden" value="@Model.Order" name="Order" />
+            <input type="hidden" value="@Model.NotebookID" name="NotebookID" />
+            <input name="name" class="menu_input" type="text"><br>
+            <button class="menu_submit" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<a asp-action="Index">&larr; BACK</a>
+<div class="d-flex flex-row flex-wrap">
+    <h2 class="display-6">@Model.Title</h2>
+    @if (Model.UserID == (string)ViewData["UserID"])
+    {
+        <a asp-action="DeletePage" asp-route-id="@Model.NoteID" class="p-3" style="margin-left: auto;"><i class="fas fa-trash-alt"></i> DELETE</a>
+        <a asp-action="EditPage" asp-route-id="@Model.NoteID" class="p-3"><i class="fas fa-edit"></i> EDIT</a>
+        <a onclick="NoteMenuToggle()" class="p-3" style="cursor: pointer;"><i class="far fa-plus-square"></i> CREATE</a>
+    }
+    <div style="margin-left: auto;">
+        @if ((int)ViewData["Pages"] > 1 && Model.Order > 0)
+        {
+            <a asp-action="Details" asp-route-id="@Model.NotebookID" asp-route-pageId="@previouspage" class="p-3">&laquo; Previous Page</a>
+        }
+        @if ((int)ViewData["Pages"] > 1 && Model.Order < (int)ViewData["Pages"] - 1)
+        {
+            <a asp-action="Details" asp-route-id="@Model.NotebookID" asp-route-pageId="@nextpage" class="p-3">Next Page &raquo;</a>
+        }
+    </div>
+</div>
+<p style="font-weight: 300">
+    <i class="fas fa-book @color[(byte)ViewData["Color"] - 1]"></i> @ViewData["Name"]
+    @if (Model.UserID != (string)ViewData["UserID"])
+    {
+        <span style="margin-left: auto;">| Created By: @ViewData["Creator"]</span>
+    }
+</p>
+<div class="markdown_main" style="background: white; height: 89%;">
+    @Html.Raw(Model.HTML)
+</div>

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+
+    <!-- Bootstrap CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/main.css">
+    <link href="/libs//fontawesome-free-5.15.3-web/css/all.min.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+    <title>notespace.io</title>
+</head>
+<body>
+    <nav class="notespace_gradient navbar navbar-expand-lg navbar-light bg-light">
+        <div class="notespace_gradient container-fluid">
+          <img src="/imgs/logo_white.svg" style="max-width: 150px;" width="100%"/>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars" style="color: white;"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">
+                    <i class="fas fa-home"></i> Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">
+                    <i class="fas fa-book"></i> Notebooks
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">
+                    <i class="far fa-sticky-note"></i> Notes
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <div style="background: #F3F3F3; overflow: hidden;">
+        <div class="d-flex">
+            <div class="flex-column p-3 text-white navigation notespace_gradient" style="width: 280px; height: 100vh; position: relative;">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <img class="logo" src="/imgs/logo_white.svg" style="width: 70%"/>
+                </a>
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white">
+                            <i class="fas fa-book"></i> Notebooks
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white">
+                            <i class="far fa-sticky-note"></i> Notes
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+                <a class="btn" asp-controller="Account" asp-action="Logout">LOGOUT  <i class="fas fa-sign-out-alt"></i></a>
+            </div>
+            <div class="p-5 flex-column main">
+                <div class="d-flex flex-row flex-wrap">
+                    <h2 class="display-6">My Note Name</h2>
+                    <a href="#" class="p-3" style="margin-left: auto;"><i class="fas fa-trash-alt"></i> DELETE</a>
+                    <a href="#" class="p-3"><i class="fas fa-edit"></i> EDIT</a>
+                </div>
+                <div class="markdown_main" style="background-color: white;">
+                    <blockquote>
+                        This is some text
+                    </blockquote>
+                    <code>
+                        This is my CODE!
+                    </code>
+                    <h1>This is a cool note
+                    </h1>
+                    <h2>About The Project
+                    </h2>
+                    <p>Our homes are becoming smarter with the implementation of Wi-Fi connected devices that control aspects of our homes that were not easily controllable in the past. Some of these devices include smart light bulbs, thermostats, and even refrigerators that tell us when its time to go to the grocery store. Many of these smart home devices have their own application or API for controlling the device.
+                    </p>
+                    <p><strong>MY GOAL:</strong>
+                    </p>
+                    <p>My goal of this project is to make a centralized place to control all my smart home devices and to provide useful information to me such as current room temperature, humidity levels, and current news.
+                    </p>
+                    <h3>Built With
+                    </h3>
+                    <ul>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet" title="">ASP.NET</a>
+                    </li>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" title="">Blazor</a>
+                    </li>
+                    <li><a href="https://getbootstrap.com" title="">Bootstrap</a>
+                    </li>
+                    <li><a href="https://jquery.com" title="">JQuery</a>
+                    </li>
+                    </ul>
+                    <h3>Hardware
+                    </h3>
+                    <ul>
+                    <li><a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/" title="">Raspberry Pi v4 Model B</a>
+                    </li>
+                    <li><a href="https://store.arduino.cc/usa/arduino-uno-rev3" title="">Arduino Uno</a>
+                    </li>
+                    </ul>
+                    <h2>Roadmap
+                    </h2>
+                    <p>See the <a href="https://github.com/Karrotts/MyHomeApp/issues" title="">open issues</a> for a list of proposed features (and known issues).
+                    </p>
+                    <h2>Contributing
+                    </h2>
+                    <p>Any contributions you make are <strong>greatly appreciated</strong>.
+                    </p>
+                    <ol>
+                    <li>Fork the Project
+                    </li>
+                    <li>Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+                    </li>
+                    <li>Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+                    </li>
+                    <li>Push to the Branch (`git push origin feature/AmazingFeature`)
+                    </li>
+                    <li>Open a Pull Request
+                    </li>
+                    </ol>
+                    <h2>Contact
+                    </h2>
+                    <p>Wes Miller - <a href="https://twitter.com/dev</em>karrotts" title="">@dev<em>karrotts</a> - wesley.b.miller@outlook.com
+                    </p>
+                    <h1>This is a cool note
+                    </h1>
+                    <h2>About The Project
+                    </h2>
+                    <p>Our homes are becoming smarter with the implementation of Wi-Fi connected devices that control aspects of our homes that were not easily controllable in the past. Some of these devices include smart light bulbs, thermostats, and even refrigerators that tell us when its time to go to the grocery store. Many of these smart home devices have their own application or API for controlling the device.
+                    </p>
+                    <p><strong>MY GOAL:</strong>
+                    </p>
+                    <p>My goal of this project is to make a centralized place to control all my smart home devices and to provide useful information to me such as current room temperature, humidity levels, and current news.
+                    </p>
+                    <h3>Built With
+                    </h3>
+                    <ul>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet" title="">ASP.NET</a>
+                    </li>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" title="">Blazor</a>
+                    </li>
+                    <li><a href="https://getbootstrap.com" title="">Bootstrap</a>
+                    </li>
+                    <li><a href="https://jquery.com" title="">JQuery</a>
+                    </li>
+                    </ul>
+                    <h3>Hardware
+                    </h3>
+                    <ul>
+                    <li><a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/" title="">Raspberry Pi v4 Model B</a>
+                    </li>
+                    <li><a href="https://store.arduino.cc/usa/arduino-uno-rev3" title="">Arduino Uno</a>
+                    </li>
+                    </ul>
+                    <h2>Roadmap
+                    </h2>
+                    <p>See the <a href="https://github.com/Karrotts/MyHomeApp/issues" title="">open issues</a> for a list of proposed features (and known issues).
+                    </p>
+                    <h2>Contributing
+                    </h2>
+                    <p>Any contributions you make are <strong>greatly appreciated</strong>.
+                    </p>
+                    <ol>
+                    <li>Fork the Project
+                    </li>
+                    <li>Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+                    </li>
+                    <li>Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+                    </li>
+                    <li>Push to the Branch (`git push origin feature/AmazingFeature`)
+                    </li>
+                    <li>Open a Pull Request
+                    </li>
+                    </ol>
+                    <h2>Contact
+                    </h2>
+                    <p>Wes Miller - <a href="https://twitter.com/dev</em>karrotts" title="">@dev<em>karrotts</a> - wesley.b.miller@outlook.com
+                    </p>
+                    <h1>This is a cool note
+                    </h1>
+                    <h2>About The Project
+                    </h2>
+                    <p>Our homes are becoming smarter with the implementation of Wi-Fi connected devices that control aspects of our homes that were not easily controllable in the past. Some of these devices include smart light bulbs, thermostats, and even refrigerators that tell us when its time to go to the grocery store. Many of these smart home devices have their own application or API for controlling the device.
+                    </p>
+                    <p><strong>MY GOAL:</strong>
+                    </p>
+                    <p>My goal of this project is to make a centralized place to control all my smart home devices and to provide useful information to me such as current room temperature, humidity levels, and current news.
+                    </p>
+                    <h3>Built With
+                    </h3>
+                    <ul>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet" title="">ASP.NET</a>
+                    </li>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" title="">Blazor</a>
+                    </li>
+                    <li><a href="https://getbootstrap.com" title="">Bootstrap</a>
+                    </li>
+                    <li><a href="https://jquery.com" title="">JQuery</a>
+                    </li>
+                    </ul>
+                    <h3>Hardware
+                    </h3>
+                    <ul>
+                    <li><a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/" title="">Raspberry Pi v4 Model B</a>
+                    </li>
+                    <li><a href="https://store.arduino.cc/usa/arduino-uno-rev3" title="">Arduino Uno</a>
+                    </li>
+                    </ul>
+                    <h2>Roadmap
+                    </h2>
+                    <p>See the <a href="https://github.com/Karrotts/MyHomeApp/issues" title="">open issues</a> for a list of proposed features (and known issues).
+                    </p>
+                    <h2>Contributing
+                    </h2>
+                    <p>Any contributions you make are <strong>greatly appreciated</strong>.
+                    </p>
+                    <ol>
+                    <li>Fork the Project
+                    </li>
+                    <li>Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+                    </li>
+                    <li>Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+                    </li>
+                    <li>Push to the Branch (`git push origin feature/AmazingFeature`)
+                    </li>
+                    <li>Open a Pull Request
+                    </li>
+                    </ol>
+                    <h2>Contact
+                    </h2>
+                    <p>Wes Miller - <a href="https://twitter.com/dev</em>karrotts" title="">@dev<em>karrotts</a> - wesley.b.miller@outlook.com
+                    </p>
+                    <h1>This is a cool note
+                    </h1>
+                    <h2>About The Project
+                    </h2>
+                    <p>Our homes are becoming smarter with the implementation of Wi-Fi connected devices that control aspects of our homes that were not easily controllable in the past. Some of these devices include smart light bulbs, thermostats, and even refrigerators that tell us when its time to go to the grocery store. Many of these smart home devices have their own application or API for controlling the device.
+                    </p>
+                    <p><strong>MY GOAL:</strong>
+                    </p>
+                    <p>My goal of this project is to make a centralized place to control all my smart home devices and to provide useful information to me such as current room temperature, humidity levels, and current news.
+                    </p>
+                    <h3>Built With
+                    </h3>
+                    <ul>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet" title="">ASP.NET</a>
+                    </li>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" title="">Blazor</a>
+                    </li>
+                    <li><a href="https://getbootstrap.com" title="">Bootstrap</a>
+                    </li>
+                    <li><a href="https://jquery.com" title="">JQuery</a>
+                    </li>
+                    </ul>
+                    <h3>Hardware
+                    </h3>
+                    <ul>
+                    <li><a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/" title="">Raspberry Pi v4 Model B</a>
+                    </li>
+                    <li><a href="https://store.arduino.cc/usa/arduino-uno-rev3" title="">Arduino Uno</a>
+                    </li>
+                    </ul>
+                    <h2>Roadmap
+                    </h2>
+                    <p>See the <a href="https://github.com/Karrotts/MyHomeApp/issues" title="">open issues</a> for a list of proposed features (and known issues).
+                    </p>
+                    <h2>Contributing
+                    </h2>
+                    <p>Any contributions you make are <strong>greatly appreciated</strong>.
+                    </p>
+                    <ol>
+                    <li>Fork the Project
+                    </li>
+                    <li>Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+                    </li>
+                    <li>Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+                    </li>
+                    <li>Push to the Branch (`git push origin feature/AmazingFeature`)
+                    </li>
+                    <li>Open a Pull Request
+                    </li>
+                    </ol>
+                    <h2>Contact
+                    </h2>
+                    <p>Wes Miller - <a href="https://twitter.com/dev</em>karrotts" title="">@dev<em>karrotts</a> - wesley.b.miller@outlook.com
+                    </p>
+                    <h1>This is a cool note
+                    </h1>
+                    <h2>About The Project
+                    </h2>
+                    <p>Our homes are becoming smarter with the implementation of Wi-Fi connected devices that control aspects of our homes that were not easily controllable in the past. Some of these devices include smart light bulbs, thermostats, and even refrigerators that tell us when its time to go to the grocery store. Many of these smart home devices have their own application or API for controlling the device.
+                    </p>
+                    <p><strong>MY GOAL:</strong>
+                    </p>
+                    <p>My goal of this project is to make a centralized place to control all my smart home devices and to provide useful information to me such as current room temperature, humidity levels, and current news.
+                    </p>
+                    <h3>Built With
+                    </h3>
+                    <ul>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet" title="">ASP.NET</a>
+                    </li>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" title="">Blazor</a>
+                    </li>
+                    <li><a href="https://getbootstrap.com" title="">Bootstrap</a>
+                    </li>
+                    <li><a href="https://jquery.com" title="">JQuery</a>
+                    </li>
+                    </ul>
+                    <h3>Hardware
+                    </h3>
+                    <ul>
+                    <li><a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/" title="">Raspberry Pi v4 Model B</a>
+                    </li>
+                    <li><a href="https://store.arduino.cc/usa/arduino-uno-rev3" title="">Arduino Uno</a>
+                    </li>
+                    </ul>
+                    <h2>Roadmap
+                    </h2>
+                    <p>See the <a href="https://github.com/Karrotts/MyHomeApp/issues" title="">open issues</a> for a list of proposed features (and known issues).
+                    </p>
+                    <h2>Contributing
+                    </h2>
+                    <p>Any contributions you make are <strong>greatly appreciated</strong>.
+                    </p>
+                    <ol>
+                    <li>Fork the Project
+                    </li>
+                    <li>Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+                    </li>
+                    <li>Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+                    </li>
+                    <li>Push to the Branch (`git push origin feature/AmazingFeature`)
+                    </li>
+                    <li>Open a Pull Request
+                    </li>
+                    </ol>
+                    <h2>Contact
+                    </h2>
+                    <p>Wes Miller - <a href="https://twitter.com/dev</em>karrotts" title="">@dev<em>karrotts</a> - wesley.b.miller@outlook.com
+                    </p>
+                    <h1>This is a cool note
+                    </h1>
+                    <h2>About The Project
+                    </h2>
+                    <p>Our homes are becoming smarter with the implementation of Wi-Fi connected devices that control aspects of our homes that were not easily controllable in the past. Some of these devices include smart light bulbs, thermostats, and even refrigerators that tell us when its time to go to the grocery store. Many of these smart home devices have their own application or API for controlling the device.
+                    </p>
+                    <p><strong>MY GOAL:</strong>
+                    </p>
+                    <p>My goal of this project is to make a centralized place to control all my smart home devices and to provide useful information to me such as current room temperature, humidity levels, and current news.
+                    </p>
+                    <h3>Built With
+                    </h3>
+                    <ul>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet" title="">ASP.NET</a>
+                    </li>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" title="">Blazor</a>
+                    </li>
+                    <li><a href="https://getbootstrap.com" title="">Bootstrap</a>
+                    </li>
+                    <li><a href="https://jquery.com" title="">JQuery</a>
+                    </li>
+                    </ul>
+                    <h3>Hardware
+                    </h3>
+                    <ul>
+                    <li><a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/" title="">Raspberry Pi v4 Model B</a>
+                    </li>
+                    <li><a href="https://store.arduino.cc/usa/arduino-uno-rev3" title="">Arduino Uno</a>
+                    </li>
+                    </ul>
+                    <h2>Roadmap
+                    </h2>
+                    <p>See the <a href="https://github.com/Karrotts/MyHomeApp/issues" title="">open issues</a> for a list of proposed features (and known issues).
+                    </p>
+                    <h2>Contributing
+                    </h2>
+                    <p>Any contributions you make are <strong>greatly appreciated</strong>.
+                    </p>
+                    <ol>
+                    <li>Fork the Project
+                    </li>
+                    <li>Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+                    </li>
+                    <li>Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+                    </li>
+                    <li>Push to the Branch (`git push origin feature/AmazingFeature`)
+                    </li>
+                    <li>Open a Pull Request
+                    </li>
+                    </ol>
+                    <h2>Contact
+                    </h2>
+                    <p>Wes Miller - <a href="https://twitter.com/dev</em>karrotts" title="">@dev<em>karrotts</a> - wesley.b.miller@outlook.com
+                    </p>
+                    <h1>This is a cool note
+                    </h1>
+                    <h2>About The Project
+                    </h2>
+                    <p>Our homes are becoming smarter with the implementation of Wi-Fi connected devices that control aspects of our homes that were not easily controllable in the past. Some of these devices include smart light bulbs, thermostats, and even refrigerators that tell us when its time to go to the grocery store. Many of these smart home devices have their own application or API for controlling the device.
+                    </p>
+                    <p><strong>MY GOAL:</strong>
+                    </p>
+                    <p>My goal of this project is to make a centralized place to control all my smart home devices and to provide useful information to me such as current room temperature, humidity levels, and current news.
+                    </p>
+                    <h3>Built With
+                    </h3>
+                    <ul>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet" title="">ASP.NET</a>
+                    </li>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" title="">Blazor</a>
+                    </li>
+                    <li><a href="https://getbootstrap.com" title="">Bootstrap</a>
+                    </li>
+                    <li><a href="https://jquery.com" title="">JQuery</a>
+                    </li>
+                    </ul>
+                    <h3>Hardware
+                    </h3>
+                    <ul>
+                    <li><a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/" title="">Raspberry Pi v4 Model B</a>
+                    </li>
+                    <li><a href="https://store.arduino.cc/usa/arduino-uno-rev3" title="">Arduino Uno</a>
+                    </li>
+                    </ul>
+                    <h2>Roadmap
+                    </h2>
+                    <p>See the <a href="https://github.com/Karrotts/MyHomeApp/issues" title="">open issues</a> for a list of proposed features (and known issues).
+                    </p>
+                    <h2>Contributing
+                    </h2>
+                    <p>Any contributions you make are <strong>greatly appreciated</strong>.
+                    </p>
+                    <ol>
+                    <li>Fork the Project
+                    </li>
+                    <li>Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+                    </li>
+                    <li>Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+                    </li>
+                    <li>Push to the Branch (`git push origin feature/AmazingFeature`)
+                    </li>
+                    <li>Open a Pull Request
+                    </li>
+                    </ol>
+                    <h2>Contact
+                    </h2>
+                    <p>Wes Miller - <a href="https://twitter.com/dev</em>karrotts" title="">@dev<em>karrotts</a> - wesley.b.miller@outlook.com
+                    </p>
+                    <h1>This is a cool note
+                    </h1>
+                    <h2>About The Project
+                    </h2>
+                    <p>Our homes are becoming smarter with the implementation of Wi-Fi connected devices that control aspects of our homes that were not easily controllable in the past. Some of these devices include smart light bulbs, thermostats, and even refrigerators that tell us when its time to go to the grocery store. Many of these smart home devices have their own application or API for controlling the device.
+                    </p>
+                    <p><strong>MY GOAL:</strong>
+                    </p>
+                    <p>My goal of this project is to make a centralized place to control all my smart home devices and to provide useful information to me such as current room temperature, humidity levels, and current news.
+                    </p>
+                    <h3>Built With
+                    </h3>
+                    <ul>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet" title="">ASP.NET</a>
+                    </li>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" title="">Blazor</a>
+                    </li>
+                    <li><a href="https://getbootstrap.com" title="">Bootstrap</a>
+                    </li>
+                    <li><a href="https://jquery.com" title="">JQuery</a>
+                    </li>
+                    </ul>
+                    <h3>Hardware
+                    </h3>
+                    <ul>
+                    <li><a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/" title="">Raspberry Pi v4 Model B</a>
+                    </li>
+                    <li><a href="https://store.arduino.cc/usa/arduino-uno-rev3" title="">Arduino Uno</a>
+                    </li>
+                    </ul>
+                    <h2>Roadmap
+                    </h2>
+                    <p>See the <a href="https://github.com/Karrotts/MyHomeApp/issues" title="">open issues</a> for a list of proposed features (and known issues).
+                    </p>
+                    <h2>Contributing
+                    </h2>
+                    <p>Any contributions you make are <strong>greatly appreciated</strong>.
+                    </p>
+                    <ol>
+                    <li>Fork the Project
+                    </li>
+                    <li>Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+                    </li>
+                    <li>Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+                    </li>
+                    <li>Push to the Branch (`git push origin feature/AmazingFeature`)
+                    </li>
+                    <li>Open a Pull Request
+                    </li>
+                    </ol>
+                    <h2>Contact
+                    </h2>
+                    <p>Wes Miller - <a href="https://twitter.com/dev</em>karrotts" title="">@dev<em>karrotts</a> - wesley.b.miller@outlook.com
+                    </p>
+                    <h1>This is a cool note
+                    </h1>
+                    <h2>About The Project
+                    </h2>
+                    <p>Our homes are becoming smarter with the implementation of Wi-Fi connected devices that control aspects of our homes that were not easily controllable in the past. Some of these devices include smart light bulbs, thermostats, and even refrigerators that tell us when its time to go to the grocery store. Many of these smart home devices have their own application or API for controlling the device.
+                    </p>
+                    <p><strong>MY GOAL:</strong>
+                    </p>
+                    <p>My goal of this project is to make a centralized place to control all my smart home devices and to provide useful information to me such as current room temperature, humidity levels, and current news.
+                    </p>
+                    <h3>Built With
+                    </h3>
+                    <ul>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet" title="">ASP.NET</a>
+                    </li>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" title="">Blazor</a>
+                    </li>
+                    <li><a href="https://getbootstrap.com" title="">Bootstrap</a>
+                    </li>
+                    <li><a href="https://jquery.com" title="">JQuery</a>
+                    </li>
+                    </ul>
+                    <h3>Hardware
+                    </h3>
+                    <ul>
+                    <li><a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/" title="">Raspberry Pi v4 Model B</a>
+                    </li>
+                    <li><a href="https://store.arduino.cc/usa/arduino-uno-rev3" title="">Arduino Uno</a>
+                    </li>
+                    </ul>
+                    <h2>Roadmap
+                    </h2>
+                    <p>See the <a href="https://github.com/Karrotts/MyHomeApp/issues" title="">open issues</a> for a list of proposed features (and known issues).
+                    </p>
+                    <h2>Contributing
+                    </h2>
+                    <p>Any contributions you make are <strong>greatly appreciated</strong>.
+                    </p>
+                    <ol>
+                    <li>Fork the Project
+                    </li>
+                    <li>Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+                    </li>
+                    <li>Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+                    </li>
+                    <li>Push to the Branch (`git push origin feature/AmazingFeature`)
+                    </li>
+                    <li>Open a Pull Request
+                    </li>
+                    </ol>
+                    <h2>Contact
+                    </h2>
+                    <p>Wes Miller - <a href="https://twitter.com/dev</em>karrotts" title="">@dev<em>karrotts</a> - wesley.b.miller@outlook.com
+                    </p>
+                    <h1>This is a cool note
+                    </h1>
+                    <h2>About The Project
+                    </h2>
+                    <p>Our homes are becoming smarter with the implementation of Wi-Fi connected devices that control aspects of our homes that were not easily controllable in the past. Some of these devices include smart light bulbs, thermostats, and even refrigerators that tell us when its time to go to the grocery store. Many of these smart home devices have their own application or API for controlling the device.
+                    </p>
+                    <p><strong>MY GOAL:</strong>
+                    </p>
+                    <p>My goal of this project is to make a centralized place to control all my smart home devices and to provide useful information to me such as current room temperature, humidity levels, and current news.
+                    </p>
+                    <h3>Built With
+                    </h3>
+                    <ul>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet" title="">ASP.NET</a>
+                    </li>
+                    <li><a href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor" title="">Blazor</a>
+                    </li>
+                    <li><a href="https://getbootstrap.com" title="">Bootstrap</a>
+                    </li>
+                    <li><a href="https://jquery.com" title="">JQuery</a>
+                    </li>
+                    </ul>
+                    <h3>Hardware
+                    </h3>
+                    <ul>
+                    <li><a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/" title="">Raspberry Pi v4 Model B</a>
+                    </li>
+                    <li><a href="https://store.arduino.cc/usa/arduino-uno-rev3" title="">Arduino Uno</a>
+                    </li>
+                    </ul>
+                    <h2>Roadmap
+                    </h2>
+                    <p>See the <a href="https://github.com/Karrotts/MyHomeApp/issues" title="">open issues</a> for a list of proposed features (and known issues).
+                    </p>
+                    <h2>Contributing
+                    </h2>
+                    <p>Any contributions you make are <strong>greatly appreciated</strong>.
+                    </p>
+                    <ol>
+                    <li>Fork the Project
+                    </li>
+                    <li>Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+                    </li>
+                    <li>Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+                    </li>
+                    <li>Push to the Branch (`git push origin feature/AmazingFeature`)
+                    </li>
+                    <li>Open a Pull Request
+                    </li>
+                    </ol>
+                    <h2>Contact
+                    </h2>
+                    <p>Wes Miller - <a href="https://twitter.com/dev</em>karrotts" title="">@dev<em>karrotts</a> - wesley.b.miller@outlook.com
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+</body>
+</html>

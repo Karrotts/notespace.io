@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <link href="/lib/fontawesome/css/all.min.css" rel="stylesheet">
+    <link href="/lib/bootstrap5/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/style/main.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+    <title>notespace.io</title>
+</head>
+<body>
+    <nav class="notespace_gradient navbar navbar-expand-lg navbar-light bg-light" style="padding: 0px">
+        <div class="notespace_gradient container-fluid">
+            <img src="/imgs/logo_white.svg" style="max-width: 150px; width: 100%" />
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars" style="color: white;"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Index">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" asp-controller="Notebooks" asp-action="Index">
+                            <i class="fas fa-book"></i> Notebooks
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" asp-controller="Notes" asp-action="Index">
+                            <i class="far fa-sticky-note"></i> Notes
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div style="background: #F3F3F3; overflow: hidden;">
+        <div class="d-flex">
+            <div class="flex-column p-3 text-white navigation notespace_gradient" style="width: 280px; height: 100vh; position: relative;">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <img class="logo" src="/imgs/logo_white.svg" style="width: 70%" />
+                </a>
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a asp-controller="Home" asp-action="Index" class="nav-link @(ViewContext.RouteData.Values["controller"].ToString().Equals("Home") ? "active" : "text-white")">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Notebooks" asp-action="Index" class="nav-link @(ViewContext.RouteData.Values["controller"].ToString().Equals("Notebooks") ? "active" : "text-white")">
+                            <i class="fas fa-book"></i> Notebooks
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Notes" asp-action="Index" class="nav-link @(ViewContext.RouteData.Values["controller"].ToString().Equals("Notes") ? "active" : "text-white")">
+                            <i class="far fa-sticky-note"></i> Notes
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a class="btn" asp-controller="Account" asp-action="Logout">LOGOUT  <i class="fas fa-sign-out-alt"></i></a>
+                }
+            </div>
+            <div class="p-5 flex-column main" style="height: 95vh">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap5/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿@model Notespace.Web.Models.ViewModels.RegisterModel
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <link href="/lib/fontawesome/css/all.min.css" rel="stylesheet">
+    <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/style/main.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+    <title>notespace.io</title>
+</head>
+<body>
+    <div class="notespace_gradient login_background">
+        <div class="circle top_left notespace_gradient"></div>
+        <div class="circle bottom_right notespace_gradient"></div>
+        <div class="login">
+            <div class="main_container register">
+                <div class="inner_container">
+                    <img class="header_logo register" src="/imgs/logo_color.svg">
+                    <h1 class="title">Register</h1>
+                    <p style="margin-top: 15px; margin-bottom: 5px;">Have an account? <a asp-controller="account" asp-action="login">Log in!</a></p>
+                    <form asp-action="Register" asp-controller="Account" method="post">
+                        <label id="error" class="error_text">@Model.ErrorMessage</label><br>
+                        <label asp-for="Username">Username</label><br>
+                        <input asp-for="Username" type="text" placeholder="username" required><br>
+                        <label asp-for="Email">Email</label><br>
+                        <input asp-for="Email" type="text" placeholder="email" required><br>
+                        <label asp-for="Password">Password</label><br>
+                        <input asp-for="Password" type="password" placeholder="*********" required><br>
+                        <label asp-for="ConfirmPassword">Confirm Password</label><br>
+                        <input asp-for="ConfirmPassword" type="password" placeholder="*********" required><br>
+                        <button type="submit">SIGN UP</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

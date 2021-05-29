@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model PublicItems; 
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Home Page";
+}
+<a href="https://www.markdownguide.org/basic-syntax/">
+    <div class="banner notespace_gradient">
+        <h1 class="display-4">Getting Started with notespace.io <i class="fas fa-arrow-right"></i></h1>
+    </div>
+</a>
+<h2 class="display-5" style="margin-bottom: 20px;"><i class="far fa-compass" style="font-size: 2.5rem;"></i> Discover</h2>
+<div class="public d-flex">
+    <div class="public_container p-3 flex-column">
+        <h4 class="display-6">Public Notes</h4>
+        @foreach (Note n in Model.PublicNotes)
+        {
+            <a asp-controller="Notes" asp-action="Details" asp-route-id="@n.NoteID" class="d-flex p-3 note_button">
+                <div style="white-space: normal;"><i class="far fa-sticky-note"></i> @n.Title</div>
+                <span style="margin-left: auto;">CREATED BY: @n.User.UserName</span>
+            </a>
+        }
+    </div>
+    <div class="public_container p-3 flex-column margin-fix">
+        <h4 class="display-6">Public Notebooks</h4>
+        @foreach (Notebook n in Model.PublicNotebooks)
+        {
+            <a asp-controller="Notebooks" asp-action="Details" asp-route-id="@n.NotebookID" asp-route-pageId="0" class="d-flex p-3 note_button">
+                <div style="white-space: normal;"><i class="fas fa-book"></i> @n.Title</div>
+                <span style="margin-left: auto;">CREATED BY: @n.User.UserName</span>
+            </a>
+        }
+        </div>
+</div>

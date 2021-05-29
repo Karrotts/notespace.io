@@ -1,0 +1,689 @@
+$notespace-blue: #466EAB;
+$notespace-darkblue: #214468;
+$notespace-green: rgb(59, 156, 80);
+$notespace-font: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+
+$color-offwhite: #F5F5F5;
+$color-error: rgb(206, 27, 27);
+
+body
+{
+    margin: 0;
+}
+
+a
+{
+    text-decoration: none;
+    color: $notespace-green;
+}
+
+.login_background
+{
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+.notespace_gradient
+{
+    background: linear-gradient(45deg, $notespace-blue, $notespace-green) !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.circle
+{
+    width: 100vw;
+    height: 100vh;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.top_left
+{
+    position: absolute;
+    height: 100vh;
+    width: 100vh;
+    right: 50vw;
+    top: -50vh;
+    -ms-transform: rotate(60deg); /* IE 9 */
+    transform: rotate(60deg);
+}
+.bottom_right
+{
+    position: absolute;
+    height: 140vh;
+    width: 140vh;
+    left: 50vw;
+    top: 30vh;
+    -ms-transform: rotate(40deg); /* IE 9 */
+    transform: rotate(40deg);
+}
+
+.login
+{
+    .main_container
+    {
+        background: $color-offwhite;
+        width: 100vw;
+        max-width: 1080px;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        box-shadow: 6px 6px 10px rgba($color: #000000, $alpha: .16);
+        z-index: 1;
+        display: flex;
+    }
+
+    .register
+    {
+        display: inline-block !important;
+        width: initial;
+    }
+
+    .inner_container
+    {
+        background: white;
+        margin: 40px 70px;
+        box-sizing: border-box;
+        padding: 49px 43px;
+        font-family: $notespace-font;
+        box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .16);
+    }
+
+    .header_logo
+    {
+        display: none;
+        width: 70%;
+        margin-bottom: 25px;
+    }
+
+    .title
+    {
+        margin: 0;
+        font-weight: 400;
+        letter-spacing: 2px;
+    }
+
+    .logo
+    {
+        flex: 1; 
+        width: 50%;
+        margin-top: 8%;
+        transform-origin: center;
+        margin-right: 40px;
+    }
+
+    .error_text
+    {
+        color: $color-error
+    }
+
+    input
+    {
+        width: 293px;
+        height: 58px;
+        font-size: 18px;
+        margin-top: 8px;
+        margin-bottom: 25px;
+        background: $color-offwhite;
+        padding-left: 10px;
+        border: 0;
+        box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .16);
+    }
+
+    button
+    {
+        width: 298px;
+        height: 58px;
+        background: $notespace-blue;
+        margin-top: 20px;
+        color: white;
+        letter-spacing: 2px;
+        font-size: 16px;
+        font-weight: 500;
+        border: 0;
+        border-radius: 5px;
+        box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .16);
+    }
+}
+
+.navigation
+{
+    box-shadow: 3px 0px 6px rgba($color: #000000, $alpha: .38);
+    .active
+    {
+        background: rgba($color: $notespace-blue, $alpha: .6) !important;
+    }
+
+    .logo
+    {
+        margin: auto;
+    }
+
+    .btn
+    {
+        width: 86%;
+        background: rgba($color: $notespace-darkblue, $alpha: .6) !important;
+        color: white;
+        bottom: 10px;
+        position: absolute;
+        box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .16);
+        font-weight: 500;
+    }
+}
+
+.navbar
+{
+    display: none;
+
+    .container-fluid
+    {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    button 
+    {
+        margin: .5rem .5rem .5rem !important;
+    }
+
+    img 
+    {
+        margin: .5rem .5rem .5rem !important;
+        margin-left: .5rem !important;
+    }
+    ul
+    {
+        padding-left: 10px;
+    }
+    li
+    {
+        padding-left: 15px;
+    }
+    a
+    {
+        color: white !important;
+    }
+}
+
+.main
+{
+    background: white;
+    margin: 20px 30px;
+    width: 90vw;
+    box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .16);
+    overflow-y: scroll;
+    max-height: 95vh !important;
+
+    .btn
+    {
+        margin-right: 10px;
+    }
+
+    .public
+    {
+        .public_container
+        {
+            width: 50%;
+            max-height: 50vh;
+            height: 50vh;
+            overflow-y: scroll;
+            text-align: center; 
+            background: $color-offwhite;
+            box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .16);
+
+            h2 
+            {
+                padding-bottom: 5px;
+                border-bottom: 1px solid lightgray;
+            }
+        }
+
+        .margin-fix
+        {
+            margin-left: 20px;
+        }
+    }
+
+    .banner
+    {
+        color: white; 
+        padding: 8%; 
+        margin-bottom: 25px;
+        box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .16);
+
+        a
+        {
+            color: white !important;
+        }
+
+        h1
+        {
+            text-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .3);
+        }
+
+        i
+        {
+            font-size: 2rem;
+        }
+    }
+}
+
+.markdown_main
+{
+    margin-top: 20px;
+    height: 93%;
+    padding: 2rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: $color-offwhite;
+    box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .16);
+    color: #24292e;
+    font-size: 1.1em;
+    line-height: 1.7em;
+
+    h1 {
+        margin-bottom: 5px !important;
+        padding-bottom: 5px !important;
+        font-weight:300 !important;
+        border-bottom: 1px solid lightgray !important;
+    }
+
+    h2 {
+        margin-bottom: 10px !important;
+        padding-bottom: 5px !important;
+        font-weight: 300 !important;
+        margin-top: 20px;
+        border-bottom: 1px solid lightgray !important;
+    }
+
+    h3 {
+        margin-bottom: 5px !important;
+        padding-bottom: 5px !important;
+        font-weight: 300 !important;
+    }
+
+    h4 {
+        margin-bottom: 5px !important;
+        padding-bottom: 5px !important;
+        font-weight: 300 !important;
+    }
+
+    h5 {
+        margin-bottom: 5px !important;
+        padding-bottom: 5px !important;
+        font-weight: 300 !important;
+    }
+
+    h6 {
+        margin-bottom: 5px !important;
+        padding-bottom: 5px !important;
+        font-weight: 300 !important;
+    }
+
+    a {
+        text-decoration-line: none !important;
+        color: $notespace-green !important;
+    }
+
+    blockquote {
+        background: $color-offwhite;
+        border-left: 4px solid lightgray;
+        padding-left: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    ul {
+        margin: 0px !important;
+    }
+
+    ol {
+        margin: 0px !important;
+    }
+
+    li+li {
+        margin-top: .25em !important;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    code {
+        background: $color-offwhite;
+        padding: 5px;
+        color: $notespace-blue;
+    }
+
+    pre {
+        background: $color-offwhite;
+        padding: 10px;
+        line-height: 22px;
+    }
+}
+.notes
+{
+    padding-top: 15px;
+}
+.note_button
+{
+    background: $color-offwhite;
+    box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .16);
+    margin-top: 25px;
+    color: black;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block !important;
+    width: 100%;
+    text-align: left;
+
+    i
+    {
+        color: $notespace-blue;
+    }
+
+    span
+    {
+        font-size: 1rem;
+        color: grey;
+    }
+}
+
+.icon-red
+{
+    color: #D48B8B !important;
+}
+
+.icon-blue
+{
+    color: #8BA8D4 !important;
+}
+
+.icon-green
+{
+    color: #8BD48D !important;
+}
+
+.icon-yellow
+{
+    color: #E6E66F !important;
+}
+
+.note_button:hover
+{
+    box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .25);
+}
+
+.new_note_menu
+{
+    background: rgba(0, 0, 0, 0.5); 
+    width: 100vw; 
+    height: 100vh; 
+    position: absolute; 
+    z-index: 1;
+    left: 0;
+    top: 0;
+
+    .menu_background
+    {
+        background: white; 
+        max-width: 500px; 
+        width: 100vw; 
+        position: absolute; 
+        top: 50%; 
+        left: 50%; 
+        -ms-transform: translate(-50%, -50%); 
+        transform: translate(-50%, -50%); 
+        padding: 30px;
+        box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .25);
+    }
+
+    .menu_exit_container
+    {
+        position: absolute;
+        right: 7%; 
+        top: 7%; 
+        font-size: 25px; 
+        color: lightgrey;
+        cursor: pointer;
+    }
+
+    .menu_header {}
+
+    .menu_lable
+    {
+        margin-top: 15px;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .menu_input
+    {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .menu_checkbox
+    {
+        margin-top: 10px;
+    }
+
+    .menu_submit
+    {
+        background: $notespace-blue;
+        color: white;
+        border: 0px;
+        border-radius: 5px;
+        box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .16);
+        width: 100%; 
+        margin-top: 25px; 
+        margin-bottom: 10px; 
+        padding: 10px
+    }
+
+    .container {
+        display: inline;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        }
+        
+        /* Hide the browser's default radio button */
+        .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        }
+        
+        /* Create a custom radio button */
+        .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+        }
+        
+        /* On mouse-over, add a grey background color */
+        .container:hover input ~ .checkmark {
+            box-shadow: 0px 3px 10px rgba($color: #000000, $alpha: .16);
+        }
+        
+        /* When the radio button is checked, add a blue background */
+        .container input:checked ~ .checkmark {
+            border: 2px solid rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 3px 5px rgba($color: #000000, $alpha: .3);
+        }
+        
+        /* Create the indicator (the dot/circle - hidden when not checked) */
+        .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+        }
+        
+        /* Show the indicator (dot/circle) when checked */
+        .container input:checked ~ .checkmark:after {
+        display: block;
+        }
+        
+        /* Style the indicator (dot/circle) */
+        .container .checkmark:after {
+            top: 9px;
+            left: 9px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .checkmark-red
+        {
+            background: #D48B8B;
+        }
+
+        .checkmark-blue
+        {
+            background: #8BA8D4;
+        }
+
+        .checkmark-green
+        {
+            background: #8BD48D;
+        }
+
+        .checkmark-yellow
+        {
+            background: #E6E66F;
+        }
+}
+
+.hide
+{
+    display: none;
+}
+
+@media only screen and (max-width: 1450px)
+{
+    .public
+    {
+        display: inline-block !important;
+        width: 100% !important;
+    }
+    .public_container
+    {
+        width: 100% !important;
+        margin-bottom: 25px;
+    }
+
+    .margin-fix
+    {
+        margin-left: 0px !important;
+    }
+}
+
+@media only screen and (max-width: 1140px)
+{
+    .navigation
+    {
+        display: none;
+    }
+    .navbar
+    {
+        display: flex !important;
+    }
+
+    .main
+    {
+        width: 100vw;
+        height: calc(100vh - 87px);
+    }
+
+    .login
+    {
+        .main_container
+        {
+            display: inline-block;
+            width: initial;
+        }
+
+        .logo
+        {
+            display: none;
+            width: 0px;
+            height: 0px;
+        }
+
+        .header_logo
+        {
+            display: block;
+        }
+    }
+}
+@media only screen and (max-width: 991px)
+{
+    .navbar
+    {
+        ul
+        {
+            background: white !important;
+            margin-bottom: 0px !important;
+        }
+        li
+        {
+            padding-left: 15px;
+            border-bottom: 1px solid rgba($color: #000000, $alpha: .06);
+        }
+        a
+        {
+            color: black !important;
+        }
+    }
+
+    .p-5
+    {
+        padding: 1rem !important;
+    }
+}
+
+@media only screen and (max-width: 560px)
+{
+    .login
+    {
+        .main_container
+        {
+            background: none;
+            box-shadow: none;
+        }
+    }
+}
+
+@media only screen and (max-height: 600px) {
+    .circle
+    {
+        display: none;
+    }
+
+    .login_background
+    {
+        overflow-y: initial;
+    }
+}
