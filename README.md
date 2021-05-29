@@ -1,7 +1,17 @@
 <p align="center">
   <img src="https://github.com/Karrotts/notespace.io/blob/main/doc/wireframe/notespace%20logo.JPG?raw=true">
 </p>
-<p align="center"><strong>Markdown note taking application</strong></p>
+<p align="center">
+  Markdown note taking application
+  <br />
+  <a href="https://notespace.io/"><strong>Explore the Site »</strong></a>
+  <br />
+  <a href="https://github.com/Karrotts/notespace.io/wiki">Wiki</a>
+  ·
+  <a href="https://github.com/Karrotts/notespace.io/issues">Report Bug</a>
+  ·
+  <a href="https://github.com/Karrotts/notespace.io/issues">Request Feature</a>
+</p>
 
 ## About This Project
 This application was built for the San Diego Microsoft Software and Systems Academy (MSSA) Cloud Application Development Cohort. This application was built during the 18-week program where I must build a cloud application using Azure cloud technologies. During the 18-week program I utilized the waterfall model of software development where I gathered the requirements needed for the application, designed the application, implemented and maintained the application.
