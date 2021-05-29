@@ -35,6 +35,29 @@ This project went through multiple phases and updates during the 18-week period.
 * [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/)
 * [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/)
 
+## Getting Started
+
+Application ultilizes .NET Core 3.1, and Microsoft SQL Server. Both must be installed on your system in order for the application to run locally on your system.
+* [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet/3.1)
+* [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+
+Once those are installed, follow the following instructions.
+1. Clone or Fork the Project
+2. Open File Location on Your Local Computer
+3. Build the Solution
+4. Open PowerShell in Project Location and Run `dotnet ef database update`
+5. Still In PowerShell, Run `dotnet run Notespace.Web`
+   
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
 
 ## Roadmap
 See the [open issues](https://github.com/Karrotts/MyHomeApp/issues) for a list of proposed features (and known issues).
