@@ -21,7 +21,7 @@ For my project, I proposed to make an application that utilizes markdown to allo
 Note taking is an important aspect of learning any kind of material, it allows you to look back at important topics or sections in which you may struggle with. Taking notes allows you to write material into your own words which helps with retaining the information you have learned. A major problem with most note taking applications is formatting the information in a clear concise manner. This application attempts to solve that by allowing users to quickly transform notes into a well formatted documents using Markdown.
 
 This project went through multiple phases and updates during the 18-week period. You can find more information about the project, including requirements, design documents, and testing in the 
-[Wiki!](https://github.com/Karrotts/notespace.io/wiki)
+[Wiki](https://github.com/Karrotts/notespace.io/wiki)
 
 ## Built With
 * [ASP.NET MVC](https://dotnet.microsoft.com/apps/aspnet)
